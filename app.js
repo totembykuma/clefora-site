@@ -100,13 +100,13 @@ document.addEventListener("click",function(e){var a=e.target.closest("#rdv-next"
     if(!/^(\+33|0)[1-9]\d{8}$/.test(tel)){msg("Indiquez un numéro de téléphone français valide.",1);return}
     if(cpv.length!==5){msg("Indiquez votre code postal.",1);return}
     if(!document.getElementById("f-rgpd").checked){msg("Cochez la case d'accord pour continuer.",1);return}
-    try{if(Date.now()-(+localStorage.getItem("clefora_last")||0)<60000){msg("Votre demande est déjà enregistrée. Choisissez votre créneau d'appel.");document.getElementById("rdv-next").hidden=false;openCal();return}}catch(_){}
+    try{if(Date.now()-(+localStorage.getItem("clefora_last")||0)<60000){msg("Votre demande est déjà enregistrée. Choisissez votre créneau d'appel.");openCal();return}}catch(_){}
     sending=true;btn.disabled=true;
     var prof=document.getElementById("f-prof").value;
     fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({
       access_key:(prof!=="Hôtel / conciergerie"&&KEY_MFY.indexOf("A_REMPLACER")<0)?KEY_MFY:ACCESS_KEY,subject:"Clefora · nouvelle demande ("+prof+")",from_name:"Site Clefora",nom:name.slice(0,80),telephone:tel,profil:prof,code_postal:cpv,botcheck:""})})
     .then(function(r){return r.json()}).then(function(d){
-      if(d.success){msg("Merci, c'est noté. Dernière étape : choisissez votre créneau d'appel.");document.getElementById("rdv-next").hidden=false;openCal();f.reset();try{localStorage.setItem("clefora_last",Date.now())}catch(_){}}
+      if(d.success){msg("Merci, c'est noté. Dernière étape : choisissez votre créneau d'appel.");openCal();f.reset();try{localStorage.setItem("clefora_last",Date.now())}catch(_){}}
       else msg("L'envoi n'a pas abouti. Appelez directement le 06 69 92 21 71.",1);
     }).catch(function(){msg("L'envoi n'a pas abouti. Appelez directement le 06 69 92 21 71.",1)})
     .finally(function(){sending=false;btn.disabled=false});
