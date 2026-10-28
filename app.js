@@ -75,7 +75,7 @@
   /* E-mails */
   document.querySelectorAll(".mail").forEach(function(s){var a=s.dataset.u+"@"+s.dataset.d,l=document.createElement("a");l.href="mailto:"+a;l.textContent=a;l.style.color="inherit";s.textContent="";s.appendChild(l)});
   /* Envoi : Web3Forms + pot de miel + délai minimum + limite locale */
-  var ACCESS_KEY="75f0b8b4-63fd-4f63-b4e1-7ea272593b71",KEY_MFY="A_REMPLACER_CLE_MFY",t0=Date.now(),sending=false;
+  var ACCESS_KEY="75f0b8b4-63fd-4f63-b4e1-7ea272593b71",KEY_MFY="f8af1bad-0272-4119-bf86-54ca4244c1bf",t0=Date.now(),sending=false;
   document.getElementById("lead-form").addEventListener("submit",function(e){
     e.preventDefault();
     var f=e.target,ok=document.getElementById("ok"),btn=f.querySelector("button[type=submit]");
