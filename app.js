@@ -7,7 +7,7 @@
   function enterSite(){if(gone)return;gone=true;intro.classList.add("open");setTimeout(function(){root.style.overflow="";root.classList.add("arrive")},800);setTimeout(function(){intro.hidden=true},1300)}
   document.getElementById("enter").addEventListener("click",enterSite);
   document.querySelectorAll("[data-go]").forEach(function(d){d.addEventListener("click",function(){document.getElementById(d.dataset.go).scrollIntoView({behavior:"smooth"})})});
-  document.addEventListener("click",function(e){var a=e.target.closest("[data-pre]");if(a)document.getElementById("f-prof").value=a.dataset.pre});
+  document.addEventListener("click",function(e){var a=e.target.closest("[data-pre]");var p=document.getElementById("f-prof");if(a&&p)p.value=a.dataset.pre});
   /* Apparitions au défilement */
   (function(){var els=document.querySelectorAll(".room .story>*,.room .card,.chip,.path>div,.leads,.market .head,.contact>*,.fact");
     if(!("IntersectionObserver" in window))return;
@@ -76,7 +76,7 @@
   document.querySelectorAll(".mail").forEach(function(s){var a=s.dataset.u+"@"+s.dataset.d,l=document.createElement("a");l.href="mailto:"+a;l.textContent=a;l.style.color="inherit";s.textContent="";s.appendChild(l)});
   /* Envoi : Web3Forms + pot de miel + délai minimum + limite locale */
   var ACCESS_KEY="75f0b8b4-63fd-4f63-b4e1-7ea272593b71",KEY_MFY="d46879e2-0d24-4c07-8ddc-430a89f83e86",t0=Date.now(),sending=false;
-  document.getElementById("lead-form").addEventListener("submit",function(e){
+  (document.getElementById("lead-form")||document.createElement("form")).addEventListener("submit",function(e){
     e.preventDefault();
     var f=e.target,ok=document.getElementById("ok"),btn=f.querySelector("button[type=submit]");
     function msg(t,err){ok.textContent=t;ok.style.color=err?"#9B2C2C":"";ok.hidden=false}
