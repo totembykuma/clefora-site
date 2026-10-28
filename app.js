@@ -75,7 +75,7 @@
   /* E-mails */
   document.querySelectorAll(".mail").forEach(function(s){var a=s.dataset.u+"@"+s.dataset.d,l=document.createElement("a");l.href="mailto:"+a;l.textContent=a;l.style.color="inherit";s.textContent="";s.appendChild(l)});
   /* Envoi : Web3Forms + pot de miel + délai minimum + limite locale */
-  var ACCESS_KEY="75f0b8b4-63fd-4f63-b4e1-7ea272593b71",t0=Date.now(),sending=false;
+  var ACCESS_KEY="75f0b8b4-63fd-4f63-b4e1-7ea272593b71",KEY_MFY="A_REMPLACER_CLE_MFY",t0=Date.now(),sending=false;
   document.getElementById("lead-form").addEventListener("submit",function(e){
     e.preventDefault();
     var f=e.target,ok=document.getElementById("ok"),btn=f.querySelector("button[type=submit]");
@@ -91,7 +91,7 @@
     sending=true;btn.disabled=true;
     var prof=document.getElementById("f-prof").value;
     fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({
-      access_key:ACCESS_KEY,subject:"Clefora · nouvelle demande ("+prof+")",from_name:"Site Clefora",nom:name.slice(0,80),telephone:tel,profil:prof,code_postal:cpv,botcheck:""})})
+      access_key:(prof!=="Hôtel / conciergerie"&&KEY_MFY.indexOf("A_REMPLACER")<0)?KEY_MFY:ACCESS_KEY,subject:"Clefora · nouvelle demande ("+prof+")",from_name:"Site Clefora",nom:name.slice(0,80),telephone:tel,profil:prof,code_postal:cpv,botcheck:""})})
     .then(function(r){return r.json()}).then(function(d){
       if(d.success){msg("Merci, votre demande est bien partie. Vous êtes rappelé aujourd'hui.");f.reset();try{localStorage.setItem("clefora_last",Date.now())}catch(_){}}
       else msg("L'envoi n'a pas abouti. Appelez directement le 06 69 92 21 71.",1);
