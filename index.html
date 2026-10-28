@@ -41,7 +41,7 @@
 </ul>
 
 
-<div class="topbar"><div class="wrap"><span class="hide-m">Paris · Petite couronne · Toute la France</span><span>Rappel le jour même · <a href="#contact">06 69 92 21 71</a> · <a href="#rdv">Réserver un appel</a></span></div></div>
+<div class="topbar"><div class="wrap"><span class="hide-m">Paris · Petite couronne · Toute la France</span><span>Rappel le jour même · <a href="#contact">06 69 92 21 71</a> · <a href="#contact">Réserver un appel</a></span></div></div>
 
 <header class="nav">
   <div class="wrap">
@@ -239,12 +239,25 @@
           <span>Hôtels &amp; conciergeries : <span class="mail" data-u="william" data-d="capitalnettoyage.fr" style="color:var(--ink)"></span></span>
         </div>
       </div>
-      <div id="rdv" style="display:grid;gap:20px;align-content:start">
-        <span class="caps gold">Réserver un appel</span>
-        <h3 style="margin:0;font-size:34px;font-weight:300">Choisissez votre <em>créneau</em>.</h3>
-        <p style="color:var(--ink-soft);max-width:44ch;margin:0">Du lundi au vendredi, de 10 h à 19 h. Vous recevez la confirmation par e-mail et nous vous appelons à l'heure choisie.</p>
-        <a class="btn fill" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2npTefMHWAxpXRaFQKkoJlQNhZ6TVhZwTVz6G-1Iu67oCauq5TNaA1YqWWaSHUng1ExlrrRI3R" target="_blank" rel="noopener" style="justify-self:start">Choisir un créneau</a>
-      </div>
+      <form id="lead-form" novalidate>
+        <span class="caps gold" id="rdv">Réserver un appel</span>
+        <p class="fine" style="margin:0">Étape 1 : vos coordonnées. Étape 2 : vous choisissez votre créneau (lundi au vendredi, 10 h à 19 h).</p>
+        <div class="row">
+          <label for="f-name">Prénom et nom<input id="f-name" autocomplete="name"></label>
+          <label for="f-tel">Téléphone<input id="f-tel" type="tel" autocomplete="tel"></label>
+        </div>
+        <div class="row">
+          <label for="f-prof">Vous êtes
+            <select id="f-prof"><option>Propriétaire</option><option>Hôtel / conciergerie</option><option>Conciergerie partenaire</option></select>
+          </label>
+          <label for="f-cp">Code postal<input id="f-cp" inputmode="numeric" maxlength="5"></label>
+        </div>
+        <label class="check" for="f-rgpd"><input id="f-rgpd" type="checkbox" required>J'accepte d'être recontacté et que ma demande soit transmise au bon partenaire.</label>
+        <button class="btn fill" type="submit">Continuer vers mon créneau</button>
+        <input type="text" name="site_web" id="f-hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0"><p class="fine">Vos coordonnées servent uniquement à vous rappeler et à transmettre votre demande au partenaire concerné. <a href="confidentialite.html">En savoir plus</a>.</p>
+        <div class="okmsg" id="ok" role="status" aria-live="polite" hidden></div>
+        <a class="btn fill" id="rdv-next" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2npTefMHWAxpXRaFQKkoJlQNhZ6TVhZwTVz6G-1Iu67oCauq5TNaA1YqWWaSHUng1ExlrrRI3R" target="_blank" rel="noopener" style="justify-self:start" hidden>Choisir mon créneau</a>
+      </form>
     </div>
   </section>
 </main>
