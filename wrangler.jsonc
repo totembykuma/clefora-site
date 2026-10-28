@@ -1,5 +1,6 @@
 {
   "name": "clefora-site",
   "compatibility_date": "2026-10-01",
+  "preview_urls": false,
   "assets": { "directory": "./", "not_found_handling": "404-page" }
 }
