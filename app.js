@@ -66,7 +66,7 @@ document.addEventListener("click",function(e){var a=e.target.closest("#rdv-next"
 
   /* Devis ménage */
   var nb=document.getElementById("nb"),est="Hôtel";
-  function nbShow(){document.getElementById("nb-out").innerHTML=nb.value+" <small>"+(est==="Hôtel"?"chambres":"appartements")+"</small>"}
+  function nbShow(){document.getElementById("nb-out").innerHTML=(nb.value>=100?"100 ou +":nb.value)+" <small>"+(est==="Hôtel"?"chambres":"appartements")+"</small>"}
   group("[data-est]","est",function(v){est=v;document.getElementById("nb-l").textContent=v==="Hôtel"?"Nombre de chambres":"Nombre d'appartements";nbShow()});
   group("[data-linge]","linge",function(){});
   nb.addEventListener("input",nbShow);nbShow();
