@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Clefora · Bourse aux propriétaires pour conciergeries</title>
+<meta name="description" content="Propriétaires à Paris et proche banlieue, hôtels, conciergeries : Clefora vous met en relation avec le bon partenaire. Rappel le jour même.">
+<link rel="canonical" href="https://clefora.fr/bourse.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Clefora">
+<meta property="og:description" content="Chaque bien trouve son partenaire. Gestion locative, ménage hôtelier et réseau de conciergeries.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://clefora.fr/bourse.html">
+<meta property="og:site_name" content="Clefora">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://clefora.fr/media/entree.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta property="og:image:alt" content="Entrée d'un hôtel particulier parisien">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#4A1E26">
+<link rel="preload" href="fonts/jost-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="bourse.js" defer></script>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><span class="hide-m">Paris · Petite couronne · Toute la France</span><span>Rappel le jour même · <a href="index.html#contact">06 69 92 21 71</a> · <a href="index.html#rdv">Réserver un appel</a></span></div></div>
+
+<header class="nav">
+  <div class="wrap">
+    <ul>
+      <li><a href="index.html#piscine">Propriétaires</a></li>
+      <li><a href="index.html#suite">Hôtels &amp; conciergeries</a></li>
+    </ul>
+    <a class="brand" href="index.html#top" aria-label="Clefora, accueil">
+      <span class="brand-row">
+        <b>CLEF<svg class="o" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="13" cy="11" r="2.6" fill="#8C4A55"/><path d="M11.6 12.6h2.8l.9 5.4h-4.6z" fill="#8C4A55"/></svg>RA</b>
+      </span>
+      <small>Maison de mise en relation</small>
+    </a>
+    <ul class="r">
+      <li><a href="bourse.html">Bourse aux leads</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+<main>
+  <section class="s market" id="bourse">
+    <div class="scene" aria-hidden="true"><img class="bgv" src="media/terrasse.jpg" alt=""><div class="scene-cap"><div class="in"><span class="caps">Étage III · La Terrasse</span><h2>Vue sur toute la France</h2></div></div></div>
+    
+    <div class="wrap">
+      <div class="head">
+        <span class="rule caps" style="color:var(--gold-soft)">Réservé aux conciergeries</span>
+        <h2>La bourse aux <em>propriétaires</em>.</h2>
+        <p>Des propriétaires qualifiés, près de chez vous. Tapez votre code postal.</p>
+      </div>
+      <div class="search">
+        <label for="lead-cp">Votre code postal ou département<input id="lead-cp" inputmode="numeric" maxlength="5" value="91"></label>
+      </div>
+      <p class="count caps" id="lead-count" aria-live="polite"></p>
+      <div class="leads" id="leads"></div>
+      <ul class="chips light">
+        <li class="chip"><b>Qualifié</b><span>par téléphone</span></li>
+        <li class="chip"><b>Exclusif</b><span>vendu une fois</span></li>
+        <li class="chip"><b>Consenti</b><span>RGPD</span></li>
+        <li class="chip"><b>0</b><span>abonnement</span></li>
+      </ul>
+      <p class="demo">Coordonnées transmises après achat.</p>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <div><b>CLEFORA</b>Maison de mise en relation immobilière et hôtelière. Paris.</div>
+    <div>Apporteur d'affaires indépendant. Les mandats de gestion et contrats de ménage sont signés directement avec nos maisons partenaires.</div>
+    <div>Clefora · Paris<br>06 69 92 21 71<br><a href="confidentialite.html">Mentions légales et confidentialité</a></div>
+  </div>
+</footer>
+</body>
+</html>

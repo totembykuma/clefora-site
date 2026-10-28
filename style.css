@@ -136,6 +136,11 @@ input:focus,select:focus{outline:none;border-color:var(--gold)}
 .partners .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:24px 80px;padding-block:44px}
 .partners img{height:52px;width:auto}
 
+/* Encart bourse */
+.teaser{border-top:1px solid var(--line)}
+.teaser .wrap{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap}
+.teaser h2{margin:12px 0 10px;font-size:clamp(34px,4vw,52px);line-height:1.05}
+.teaser p{color:var(--ink-soft);max-width:52ch}
 /* Bourse aux leads */
 .market{background:var(--emerald);color:var(--ivory)}
 .market .head p{color:rgba(242,238,234,.72)}
@@ -286,7 +291,7 @@ html.arrive .nav{animation-delay:.12s}html.arrive .hero{animation-delay:.25s}
 @media (prefers-reduced-motion:reduce){.intro video,.intro::after,.intro .seal{transition:none}html.arrive *{animation:none!important}}
 .lede{font-family:var(--serif);font-size:22px;color:var(--ink-soft);font-style:italic}
 .chips{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
-.chip{display:grid;gap:2px;padding:18px 16px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.45);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s;cursor:default}
+.chip{display:grid;gap:2px;padding:18px 16px;border:0;border-top:1px solid var(--line);border-radius:0;background:transparent;padding-left:0;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s;cursor:default}
 .chip b{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.05;color:var(--emerald)}
 .chip span{font-size:12.5px;letter-spacing:.04em;color:var(--ink-soft)}
 .chip:hover{transform:translateY(-4px) rotate(-.6deg);box-shadow:0 14px 30px -18px rgba(74,30,38,.5);border-color:var(--gold)}
@@ -298,5 +303,5 @@ html.arrive .nav{animation-delay:.12s}html.arrive .hero{animation-delay:.25s}
 .trust>div{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .trust b{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:500;min-width:110px}
 .trust ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.trust li{font-family:var(--serif);font-size:18px;padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.5);transition:transform .3s,border-color .3s}
+.trust li{font-family:var(--serif);font-size:18px;padding:6px 14px;border:1px solid var(--line);border-radius:0;background:transparent;transition:transform .3s,border-color .3s}
 .trust li:hover{transform:translateY(-2px);border-color:var(--gold)}
