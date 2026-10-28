@@ -48,6 +48,7 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgroun
 .nav ul a:hover{color:var(--ink)}
 .brand{display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none}
 .brand-row{display:flex;align-items:center;gap:12px}
+.brand b .o{width:.78em;height:.78em;vertical-align:-.08em;margin-right:.32em}
 .brand b{font-family:var(--serif);font-weight:400;font-size:30px;letter-spacing:.32em;margin-right:-.32em}
 .brand small{font-size:9.5px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-right:-.42em}
 
