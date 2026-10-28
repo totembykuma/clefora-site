@@ -1,3 +1,16 @@
+/* Calendrier de réservation ouvert automatiquement après l'envoi du formulaire */
+window.openCal=function(){
+  if(document.getElementById("cal-ov"))return;
+  var u=document.getElementById("rdv-next").href,ov=document.createElement("div"),box=document.createElement("div"),x=document.createElement("button"),fr=document.createElement("iframe");
+  ov.id="cal-ov";ov.style.cssText="position:fixed;inset:0;z-index:9999;background:rgba(43,43,43,.6);display:flex;align-items:center;justify-content:center;padding:16px";
+  box.style.cssText="position:relative;width:min(960px,100%);height:min(760px,100%);background:#fff;border:1px solid #4A1E26";
+  x.type="button";x.textContent="×";x.setAttribute("aria-label","Fermer");x.style.cssText="position:absolute;top:-14px;right:-14px;width:36px;height:36px;border-radius:50%;border:0;background:#4A1E26;color:#F2EEEA;font-size:22px;line-height:1;cursor:pointer";
+  fr.src=u+"?gv=true";fr.title="Choisir votre créneau d'appel";fr.style.cssText="width:100%;height:100%;border:0";
+  function close(){ov.remove();document.removeEventListener("keydown",esc)}function esc(e){if(e.key==="Escape")close()}
+  x.onclick=close;ov.onclick=function(e){if(e.target===ov)close()};document.addEventListener("keydown",esc);
+  box.appendChild(fr);box.appendChild(x);ov.appendChild(box);document.body.appendChild(ov);x.focus();
+};
+document.addEventListener("click",function(e){var a=e.target.closest("#rdv-next");if(a){e.preventDefault();openCal()}});
 (function(){
   /* Entrée du palace */
   var intro=document.getElementById("intro"),root=document.documentElement;
@@ -87,13 +100,13 @@
     if(!/^(\+33|0)[1-9]\d{8}$/.test(tel)){msg("Indiquez un numéro de téléphone français valide.",1);return}
     if(cpv.length!==5){msg("Indiquez votre code postal.",1);return}
     if(!document.getElementById("f-rgpd").checked){msg("Cochez la case d'accord pour continuer.",1);return}
-    try{if(Date.now()-(+localStorage.getItem("clefora_last")||0)<60000){msg("Votre demande est déjà enregistrée. Choisissez votre créneau d'appel.");document.getElementById("rdv-next").hidden=false;return}}catch(_){}
+    try{if(Date.now()-(+localStorage.getItem("clefora_last")||0)<60000){msg("Votre demande est déjà enregistrée. Choisissez votre créneau d'appel.");document.getElementById("rdv-next").hidden=false;openCal();return}}catch(_){}
     sending=true;btn.disabled=true;
     var prof=document.getElementById("f-prof").value;
     fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({
       access_key:(prof!=="Hôtel / conciergerie"&&KEY_MFY.indexOf("A_REMPLACER")<0)?KEY_MFY:ACCESS_KEY,subject:"Clefora · nouvelle demande ("+prof+")",from_name:"Site Clefora",nom:name.slice(0,80),telephone:tel,profil:prof,code_postal:cpv,botcheck:""})})
     .then(function(r){return r.json()}).then(function(d){
-      if(d.success){msg("Merci, c'est noté. Dernière étape : choisissez votre créneau d'appel.");document.getElementById("rdv-next").hidden=false;f.reset();try{localStorage.setItem("clefora_last",Date.now())}catch(_){}}
+      if(d.success){msg("Merci, c'est noté. Dernière étape : choisissez votre créneau d'appel.");document.getElementById("rdv-next").hidden=false;openCal();f.reset();try{localStorage.setItem("clefora_last",Date.now())}catch(_){}}
       else msg("L'envoi n'a pas abouti. Appelez directement le 06 69 92 21 71.",1);
     }).catch(function(){msg("L'envoi n'a pas abouti. Appelez directement le 06 69 92 21 71.",1)})
     .finally(function(){sending=false;btn.disabled=false});
