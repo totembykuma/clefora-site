@@ -159,6 +159,7 @@ img,video{display:block;max-width:100%}
 .lead .sec small{color:var(--rose-soft);font-size:12.5px}
 .lead .blur{filter:blur(6px);user-select:none;color:var(--rose-soft)}
 .lead .link{color:var(--ivory)}
+.buys{display:flex;flex-direction:column;gap:12px}
 .market .terms{max-width:none;margin-top:clamp(72px,9vw,110px)}
 .market .terms div{border-color:var(--line-light)}
 .market .terms dt{color:var(--rose-soft)}
@@ -232,7 +233,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--line-light);padding-to
   .gallery{grid-template-columns:1fr 1fr}.gallery .tall{grid-column:1/-1;grid-row:auto}
   .lead{grid-template-columns:auto 1fr;gap:6px 20px}
   .lead .blur{display:none}
-  .lead .link{grid-column:2}
+  .lead .link,.lead .buys{grid-column:2}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}
