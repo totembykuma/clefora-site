@@ -8,12 +8,19 @@
     /* Onglet « Public » du Google Sheet publié en CSV (colonnes id, cp, date, source, formule). Vide : la liste ci-dessus est utilisée. */
     SHEET_CSV="";
   var lc=document.getElementById("lead-cp"),box=document.getElementById("leads"),cnt=document.getElementById("lead-count");
+  /* Formule connue : un bouton. Formule inconnue : un bouton par formule vendue, l'acheteur choisit. */
+  function buy(l,o){
+    function a(x){return '<a class="link" href="'+x.url+'?client_reference_id=lead-'+l.id+'">Acheter · '+(o?'N° '+l.id:x.nom+' · '+x.prix)+'</a>'}
+    if(o)return a(o);
+    if(l.f)return '<a class="link" href="#rendez-vous">N° '+l.id+'</a>';
+    return '<span class="buys">'+Object.keys(OFFRES).map(function(k){return a(OFFRES[k])}).join("")+'</span>';
+  }
   function render(){
     var q=lc.value.replace(/\D/g,""),d=q.slice(0,2),list=leads.filter(function(l){return q.length<2||l.cp.indexOf(q)===0});
     var where=q.length<2?"en France":(q.length>=5?"au "+q:"dans le "+d+(DEP[d]?" · "+DEP[d]:""));
     cnt.textContent=list.length+" propriétaire"+(list.length>1?"s":"")+" disponible"+(list.length>1?"s":"")+" "+where;
     if(!list.length){box.innerHTML='<li class="none">Aucun propriétaire disponible '+where+' pour le moment. <a href="#rendez-vous">Être prévenu du prochain</a>.</li>';return}
-    box.innerHTML=list.slice(0,SHOW).map(function(l){var o=OFFRES[l.f||DEFAUT];return '<li class="lead"><span class="cp">'+l.cp+'</span><span class="sec">'+(DEP[l.cp.slice(0,2)]||"")+'<small>Reçu le '+l.date+' · '+l.src+(o?' · '+o.nom+' · '+o.prix:'')+'</small></span><span class="blur" aria-hidden="true">06 •• •• •• ••</span><a class="link" href="'+(o?o.url+'?client_reference_id=lead-'+l.id:'#rendez-vous')+'">'+(o?'Acheter · ':'')+'N° '+l.id+'</a></li>'}).join("")+(list.length>SHOW?'<li class="none">Et '+(list.length-SHOW)+' autres. Affinez avec votre code postal.</li>':"");
+    box.innerHTML=list.slice(0,SHOW).map(function(l){var o=OFFRES[l.f||DEFAUT];return '<li class="lead"><span class="cp">'+l.cp+'</span><span class="sec">'+(DEP[l.cp.slice(0,2)]||"")+'<small>Reçu le '+l.date+' · '+l.src+(o?' · '+o.nom+' · '+o.prix:'')+'</small></span><span class="blur" aria-hidden="true">06 •• •• •• ••</span>'+buy(l,o)+'</li>'}).join("")+(list.length>SHOW?'<li class="none">Et '+(list.length-SHOW)+' autres. Affinez avec votre code postal.</li>':"");
   }
   function esc(v){return String(v||"").replace(/[^\w\s.\/'àâçéèêëîïôûùüÿ-]/gi,"")}
   function csv(t){return t.trim().split(/\r?\n/).slice(1).map(function(r){var c=r.split(",").map(function(v){return v.replace(/^"|"$/g,"").trim()});return {id:esc(c[0]),cp:esc(c[1]).replace(/\D/g,""),date:esc(c[2]),src:esc(c[3]),f:esc(c[4]).toUpperCase()}}).filter(function(l){return l.cp.length===5})}
