@@ -23,9 +23,6 @@ document.addEventListener("click",function(e){var a=e.target.closest("#rdv-next"
     document.getElementById("menu-btn").addEventListener("click",function(){sheet.classList.add("open");sheet.querySelector("a").focus()});
     sheet.addEventListener("click",function(e){if(e.target.closest("a,.close"))sheet.classList.remove("open")});
   }
-  /* Vidéo d'ouverture : ralentie, puis figée sur la dernière image */
-  var v=document.getElementById("v");
-  if(v){v.playbackRate=.6;v.addEventListener("loadedmetadata",function(){v.playbackRate=.6})}
   /* Apparitions au défilement */
   var els=document.querySelectorAll(".rv");
   if("IntersectionObserver" in window){
