@@ -68,12 +68,12 @@ document.addEventListener("click",function(e){var a=e.target.closest("#rdv-next"
     var name=document.getElementById("f-name").value.trim(),tel=document.getElementById("f-tel").value.replace(/[^\d+]/g,"").replace(/^00/,"+"),cpv=document.getElementById("f-cp").value.replace(/\D/g,"").slice(0,5);
     if(name.length<2||name.length>80){msg("Indiquez votre prénom et votre nom.",1,document.getElementById("f-name"));return}
     if(!/^(\+33[1-9]\d{8}|0[1-9]\d{8}|\+(?!33)[1-9]\d{7,14})$/.test(tel)){msg("Indiquez un numéro de téléphone valide.",1,document.getElementById("f-tel"));return}
-    if(!document.getElementById("f-prof").value){msg("Indiquez qui vous êtes.",1,document.getElementById("f-prof"));return}
+    var pf=document.getElementById("f-prof"),pr=f.querySelector("[name=prof]:checked"),prof=pr?pr.value:pf.value||"";
+    if(!prof){msg("Indiquez qui vous êtes.",1,f.querySelector("[name=prof]")||pf);return}
     if(cpv.length!==5){msg("Indiquez votre code postal.",1,document.getElementById("f-cp"));return}
     if(!document.getElementById("f-rgpd").checked){msg("Cochez la case d’accord pour continuer.",1,document.getElementById("f-rgpd"));return}
     try{if(Date.now()-(+localStorage.getItem("clefora_last")||0)<60000){msg("Votre demande est déjà enregistrée. Choisissez votre créneau d’appel.");openCal();return}}catch(_){}
     sending=true;btn.disabled=true;
-    var prof=document.getElementById("f-prof").value;
     fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({
       access_key:prof!=="Hôtel / conciergerie"?KEY_MFY:ACCESS_KEY,subject:"Clefora · nouvelle demande ("+prof+")",from_name:"Site Clefora",nom:name.slice(0,80),telephone:tel,profil:prof,code_postal:cpv,botcheck:""})})
     .then(function(r){return r.json()}).then(function(d){
