@@ -3,12 +3,13 @@ document.documentElement.classList.add("js");
 /* Calendrier de réservation ouvert automatiquement après l'envoi du formulaire */
 window.openCal=function(){
   if(document.getElementById("cal-ov"))return;
-  var u=document.getElementById("rdv-next").href,ov=document.createElement("div"),box=document.createElement("div"),x=document.createElement("button"),fr=document.createElement("iframe");
-  ov.id="cal-ov";ov.style.cssText="position:fixed;inset:0;z-index:9999;background:rgba(43,43,43,.6);display:flex;align-items:center;justify-content:center;padding:16px";
+  var u=document.getElementById("rdv-next").href,back=document.activeElement,ov=document.createElement("div"),box=document.createElement("div"),x=document.createElement("button"),fr=document.createElement("iframe");
+  ov.id="cal-ov";box.setAttribute("role","dialog");box.setAttribute("aria-modal","true");box.setAttribute("aria-label","Choisir votre créneau d’appel");ov.style.cssText="position:fixed;inset:0;z-index:9999;background:rgba(43,43,43,.6);display:flex;align-items:center;justify-content:center;padding:16px";
   box.style.cssText="position:relative;width:min(960px,100%);height:min(760px,100%);background:#fff;border:1px solid #4A1E26";
   x.type="button";x.textContent="×";x.setAttribute("aria-label","Fermer");x.style.cssText="position:absolute;top:-14px;right:-14px;width:36px;height:36px;border-radius:50%;border:0;background:#4A1E26;color:#F2EEEA;font-size:22px;line-height:1;cursor:pointer";
-  fr.src=u+"?gv=true";fr.title="Choisir votre créneau d'appel";fr.style.cssText="width:100%;height:100%;border:0";
-  function close(){ov.remove();document.removeEventListener("keydown",esc)}function esc(e){if(e.key==="Escape")close()}
+  fr.src=u+"?gv=true";fr.title="Choisir votre créneau d’appel";fr.style.cssText="width:100%;height:100%;border:0";
+  function close(){ov.remove();document.removeEventListener("keydown",esc);if(back&&back.focus)back.focus()}
+  function esc(e){if(e.key==="Escape")close();else if(e.key==="Tab"){var a=document.activeElement;if(a!==x&&a!==fr){e.preventDefault();x.focus()}}}
   x.onclick=close;ov.onclick=function(e){if(e.target===ov)close()};document.addEventListener("keydown",esc);
   box.appendChild(fr);box.appendChild(x);ov.appendChild(box);document.body.appendChild(ov);x.focus();
 };
@@ -20,8 +21,11 @@ document.addEventListener("click",function(e){var a=e.target.closest("#rdv-next"
   window.addEventListener("scroll",onScroll,{passive:true});onScroll();
   var sheet=document.getElementById("sheet");
   if(sheet){
-    document.getElementById("menu-btn").addEventListener("click",function(){sheet.classList.add("open");sheet.querySelector("a").focus()});
-    sheet.addEventListener("click",function(e){if(e.target.closest("a,.close"))sheet.classList.remove("open")});
+    var mb=document.getElementById("menu-btn");
+    function shut(){sheet.classList.remove("open");mb.setAttribute("aria-expanded","false")}
+    mb.addEventListener("click",function(){sheet.classList.add("open");mb.setAttribute("aria-expanded","true");setTimeout(function(){sheet.querySelector(".close").focus()},50)});
+    sheet.addEventListener("click",function(e){if(e.target.closest("a,.close"))shut()});
+    document.addEventListener("keydown",function(e){if(e.key==="Escape"&&sheet.classList.contains("open")){shut();mb.focus()}});
   }
   /* Apparitions au défilement */
   var els=document.querySelectorAll(".rv");
@@ -40,9 +44,9 @@ document.addEventListener("click",function(e){var a=e.target.closest("#rdv-next"
       var v=cp.value.replace(/\D/g,""),n=+v;
       if(v.length<5){zo.innerHTML="";return}
       if((n>=75001&&n<=75020)||n===75116){
-        zo.innerHTML='<b>Paris '+(n===75116?16:n-75000)+'<sup>e</sup>, nous y sommes.</b>La distance au métro sera vérifiée lors de l\'appel.';
+        zo.innerHTML='<b>Paris '+(n===75116?16:n-75000)+'<sup>e</sup>, nous y sommes.</b>La distance au métro sera vérifiée lors de l’appel.';
       }else if(metro[v]){
-        zo.innerHTML='<b>'+metro[v]+', nous y sommes.</b>Votre bien doit se trouver à cinq minutes à pied d\'une station.';
+        zo.innerHTML='<b>'+metro[v]+', nous y sommes.</b>Votre bien doit se trouver à cinq minutes à pied d’une station.';
       }else if(/^(92|93|94)/.test(v)){
         zo.innerHTML='<b class="mid">Nous regarderons votre adresse ensemble.</b>';
       }else{
@@ -58,23 +62,24 @@ document.addEventListener("click",function(e){var a=e.target.closest("#rdv-next"
   if(form)form.addEventListener("submit",function(e){
     e.preventDefault();
     var f=e.target,ok=document.getElementById("ok"),btn=f.querySelector("button[type=submit]");
-    function msg(t,err){ok.textContent=t;ok.style.color=err?"#9B2C2C":"";ok.hidden=false}
+    function msg(t,err,el){ok.textContent=t;ok.style.color=err?"#9B2C2C":"";ok.hidden=false;f.querySelectorAll("[aria-invalid]").forEach(function(i){i.removeAttribute("aria-invalid")});if(el){el.setAttribute("aria-invalid","true");el.focus()}}
     if(sending||document.getElementById("f-hp").value)return;
     if(Date.now()-t0<3000){msg("Merci de vérifier vos informations puis de renvoyer.",1);return}
-    var name=document.getElementById("f-name").value.trim(),tel=document.getElementById("f-tel").value.replace(/[^\d+]/g,""),cpv=document.getElementById("f-cp").value.replace(/\D/g,"").slice(0,5);
-    if(name.length<2||name.length>80){msg("Indiquez votre prénom et votre nom.",1);return}
-    if(!/^(\+33|0)[1-9]\d{8}$/.test(tel)){msg("Indiquez un numéro de téléphone français valide.",1);return}
-    if(cpv.length!==5){msg("Indiquez votre code postal.",1);return}
-    if(!document.getElementById("f-rgpd").checked){msg("Cochez la case d'accord pour continuer.",1);return}
-    try{if(Date.now()-(+localStorage.getItem("clefora_last")||0)<60000){msg("Votre demande est déjà enregistrée. Choisissez votre créneau d'appel.");openCal();return}}catch(_){}
+    var name=document.getElementById("f-name").value.trim(),tel=document.getElementById("f-tel").value.replace(/[^\d+]/g,"").replace(/^00/,"+"),cpv=document.getElementById("f-cp").value.replace(/\D/g,"").slice(0,5);
+    if(name.length<2||name.length>80){msg("Indiquez votre prénom et votre nom.",1,document.getElementById("f-name"));return}
+    if(!/^(\+33[1-9]\d{8}|0[1-9]\d{8}|\+(?!33)[1-9]\d{7,14})$/.test(tel)){msg("Indiquez un numéro de téléphone valide.",1,document.getElementById("f-tel"));return}
+    if(!document.getElementById("f-prof").value){msg("Indiquez qui vous êtes.",1,document.getElementById("f-prof"));return}
+    if(cpv.length!==5){msg("Indiquez votre code postal.",1,document.getElementById("f-cp"));return}
+    if(!document.getElementById("f-rgpd").checked){msg("Cochez la case d’accord pour continuer.",1,document.getElementById("f-rgpd"));return}
+    try{if(Date.now()-(+localStorage.getItem("clefora_last")||0)<60000){msg("Votre demande est déjà enregistrée. Choisissez votre créneau d’appel.");openCal();return}}catch(_){}
     sending=true;btn.disabled=true;
     var prof=document.getElementById("f-prof").value;
     fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({
       access_key:prof!=="Hôtel / conciergerie"?KEY_MFY:ACCESS_KEY,subject:"Clefora · nouvelle demande ("+prof+")",from_name:"Site Clefora",nom:name.slice(0,80),telephone:tel,profil:prof,code_postal:cpv,botcheck:""})})
     .then(function(r){return r.json()}).then(function(d){
-      if(d.success){msg("Merci. Dernière étape : choisissez votre créneau d'appel.");openCal();f.reset();if(zo)zo.innerHTML="";try{localStorage.setItem("clefora_last",Date.now())}catch(_){}}
-      else msg("L'envoi n'a pas abouti. Appelez directement le 06 69 92 21 71.",1);
-    }).catch(function(){msg("L'envoi n'a pas abouti. Appelez directement le 06 69 92 21 71.",1)})
+      if(d.success){msg("Merci. Dernière étape : choisissez votre créneau d’appel.");openCal();f.reset();if(zo)zo.innerHTML="";try{localStorage.setItem("clefora_last",Date.now())}catch(_){}}
+      else msg("L’envoi n’a pas abouti. Appelez directement le 06 69 92 21 71.",1);
+    }).catch(function(){msg("L’envoi n’a pas abouti. Appelez directement le 06 69 92 21 71.",1)})
     .finally(function(){sending=false;btn.disabled=false});
   });
 })();
