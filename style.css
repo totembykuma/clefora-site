@@ -149,6 +149,7 @@ img,video{display:block;max-width:100%}
 .market input{color:var(--ivory);border-color:var(--ivory);font-size:26px;font-family:var(--serif)}
 .market input:focus{border-color:var(--rose-soft)}
 .count{margin:56px 0 0;color:var(--rose-soft)}
+.buy{margin:20px 0 0}.buy a{color:var(--ivory)}
 .leads{list-style:none;margin:18px 0 0;padding:0;border-top:1px solid var(--line-light)}
 .lead,.leads .none{display:grid;grid-template-columns:140px 1fr auto auto;gap:28px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line-light)}
 .leads .none{display:block;color:var(--rose-soft)}
