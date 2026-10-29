@@ -20,7 +20,7 @@
 <meta name="theme-color" content="#4A1E26">
 <link rel="preload" href="fonts/cormorant-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/jost-normal.woff2" as="font" type="font/woff2" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://clefora.fr/#site","url":"https://clefora.fr/","name":"Clefora","inLanguage":"fr-FR"},{"@type":"ProfessionalService","@id":"https://clefora.fr/#org","name":"Clefora","url":"https://clefora.fr/","image":"https://clefora.fr/media/entree.jpg","description":"Mise en relation entre propriétaires, hôtels et conciergeries : gestion locative courte durée, bail mobilité et ménage hôtelier à Paris.","areaServed":[{"@type":"City","name":"Paris"}],"address":{"@type":"PostalAddress","addressLocality":"Paris","addressCountry":"FR"},"knowsAbout":["Conciergerie Airbnb","Bail mobilité","Ménage hôtelier","Gestion locative courte durée"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://clefora.fr/#site","url":"https://clefora.fr/","name":"Clefora","inLanguage":"fr-FR"},{"@type":"ProfessionalService","@id":"https://clefora.fr/#org","name":"Clefora","url":"https://clefora.fr/","image":"https://clefora.fr/media/entree.jpg","description":"Mise en relation entre propriétaires, hôtels et conciergeries : gestion locative courte durée, bail mobilité et ménage hôtelier à Paris.","telephone":"+33669922171","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"10:00","closes":"19:00"}],"areaServed":[{"@type":"City","name":"Paris"},{"@type":"AdministrativeArea","name":"Hauts-de-Seine"},{"@type":"AdministrativeArea","name":"Seine-Saint-Denis"},{"@type":"AdministrativeArea","name":"Val-de-Marne"}],"address":{"@type":"PostalAddress","addressLocality":"Paris","addressCountry":"FR"},"knowsAbout":["Conciergerie Airbnb","Bail mobilité","Ménage hôtelier","Gestion locative courte durée"]}]}</script>
 <link rel="stylesheet" href="style.css">
 <script src="site.js" defer></script>
 <script src="bourse.js" defer></script>
@@ -28,15 +28,15 @@
 <body>
 <header class="nav">
   <div class="wrap">
-    <ul><li><a href="proprietaires.html">Propriétaires</a></li><li><a href="hotels.html">Hôtels &amp; conciergeries</a></li></ul>
-    <a class="brand" href="index.html" aria-label="Clefora, accueil">CLEF<svg class="o" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11.5" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="13" cy="11" r="2.6" fill="#8C4A55"/><path d="M11.6 12.6h2.8l.9 5.4h-4.6z" fill="#8C4A55"/></svg>RA</a>
-    <ul class="r"><li><a href="partenaires.html" aria-current="page">Partenaires</a></li><li><a href="#rendez-vous">Contact</a></li></ul>
-    <button class="menu-btn" id="menu-btn" type="button" aria-controls="sheet">Menu</button>
+    <ul><li><a href="proprietaires">Propriétaires</a></li><li><a href="hotels">Hôtels &amp; conciergeries</a></li></ul>
+    <a class="brand" href="/" aria-label="Clefora, accueil">CLEF<svg class="o" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11.5" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="13" cy="11" r="2.6" fill="#8C4A55"/><path d="M11.6 12.6h2.8l.9 5.4h-4.6z" fill="#8C4A55"/></svg><span class="sr">O</span>RA</a>
+    <ul class="r"><li><a href="partenaires" aria-current="page">Partenaires</a></li><li><a href="#rendez-vous">Contact</a></li></ul>
+    <button class="menu-btn" id="menu-btn" type="button" aria-controls="sheet" aria-expanded="false">Menu</button>
   </div>
 </header>
 <nav class="sheet" id="sheet" aria-label="Menu">
   <button class="close" type="button">Fermer</button>
-  <a href="index.html">Accueil</a><a href="proprietaires.html">Propriétaires</a><a href="hotels.html">Hôtels &amp; conciergeries</a><a href="partenaires.html">Conciergeries partenaires</a><a href="#rendez-vous">Contact</a>
+  <a href="/">Accueil</a><a href="proprietaires">Propriétaires</a><a href="hotels">Hôtels &amp; conciergeries</a><a href="partenaires">Conciergeries partenaires</a><a href="#rendez-vous">Contact</a>
 </nav>
 <main>
   <section class="stage page-hero" aria-label="Conciergeries partenaires">
@@ -62,8 +62,8 @@
       <ul class="leads" id="leads"></ul>
       <dl class="terms rv">
         <div><dt>Qualifié</dt><dd>Chaque propriétaire a été appelé. Son projet est réel.</dd></div>
-        <div><dt>Exclusif</dt><dd>Un contact n'est confié qu'à une seule conciergerie.</dd></div>
-        <div><dt>Consenti</dt><dd>Le propriétaire a accepté d'être recontacté, conformément au RGPD.</dd></div>
+        <div><dt>Exclusif</dt><dd>Un contact n’est confié qu’à une seule conciergerie.</dd></div>
+        <div><dt>Consenti</dt><dd>Le propriétaire a accepté d’être recontacté, conformément au RGPD.</dd></div>
         <div><dt>Sans abonnement</dt><dd>Vous ne payez que les contacts que vous choisissez.</dd></div>
       </dl>
     </div>
@@ -84,11 +84,11 @@
           <label for="f-tel">Téléphone<input id="f-tel" type="tel" autocomplete="tel"></label>
         </div>
         <input type="hidden" id="f-prof" value="Conciergerie partenaire">
-        <label for="f-cp">Code postal de votre bien<input id="f-cp" inputmode="numeric" maxlength="5" autocomplete="postal-code"></label>
-        <label class="check" for="f-rgpd"><input id="f-rgpd" type="checkbox" required>J'accepte d'être recontacté et que ma demande soit transmise au bon partenaire.</label>
+        <label for="f-cp">Code postal de votre secteur<input id="f-cp" inputmode="numeric" maxlength="5" autocomplete="postal-code"></label>
+        <label class="check" for="f-rgpd"><input id="f-rgpd" type="checkbox" required>J’accepte d’être recontacté et que ma demande soit transmise à un partenaire de Clefora, qui rémunère cette mise en relation.</label>
         <div><button class="btn fill" type="submit">Rejoindre le réseau</button></div>
         <input type="text" name="site_web" id="f-hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <p class="fine">Vos coordonnées servent uniquement à vous rappeler et à transmettre votre demande au partenaire concerné. <a href="confidentialite.html">En savoir plus</a>.</p>
+        <p class="fine">Vos coordonnées servent uniquement à vous rappeler et à transmettre votre demande au partenaire concerné. <a href="confidentialite">En savoir plus</a>.</p>
         <p class="okmsg" id="ok" role="status" aria-live="polite" hidden></p>
         <a id="rdv-next" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ19p-XRw6DHfBLPKKoHdhRiLhGFMdUIKILHLs0DaoYWiAEFn2NY4NinHK8IGGSyq4xHcgd0jCD3" hidden></a>
       </form>
@@ -97,10 +97,10 @@
 </main>
 <footer>
   <div class="wrap">
-    <div><a class="brand" href="index.html" aria-label="Clefora, accueil">CLEF<svg class="o" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11.5" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="13" cy="11" r="2.6" fill="#8C4A55"/><path d="M11.6 12.6h2.8l.9 5.4h-4.6z" fill="#8C4A55"/></svg>RA</a><p>Maison de mise en relation immobilière et hôtelière, à Paris.</p></div>
-    <ul><li><a href="proprietaires.html">Propriétaires</a></li><li><a href="hotels.html">Hôtels &amp; conciergeries</a></li><li><a href="partenaires.html">Conciergeries partenaires</a></li></ul>
-    <ul><li><a href="tel:+33669922171">06 69 92 21 71</a></li><li>Lundi au vendredi, 10 h à 19 h</li><li>Paris et petite couronne</li></ul>
-    <div class="legal"><span>Apporteur d'affaires indépendant. Les mandats et contrats sont signés directement avec nos maisons partenaires.</span><a href="confidentialite.html">Mentions légales et confidentialité</a></div>
+    <div><a class="brand" href="/" aria-label="Clefora, accueil">CLEF<svg class="o" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11.5" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="13" cy="11" r="2.6" fill="#8C4A55"/><path d="M11.6 12.6h2.8l.9 5.4h-4.6z" fill="#8C4A55"/></svg><span class="sr">O</span>RA</a><p>Maison de mise en relation immobilière et hôtelière, à Paris.</p></div>
+    <ul><li><a href="proprietaires">Propriétaires</a></li><li><a href="hotels">Hôtels &amp; conciergeries</a></li><li><a href="partenaires">Conciergeries partenaires</a></li></ul>
+    <ul><li><a href="tel:+33669922171">06 69 92 21 71</a></li><li>Lundi au vendredi, 10 h à 19 h</li><li>Paris et proche banlieue</li></ul>
+    <div class="legal"><span>Apporteur d’affaires indépendant. Les mandats et contrats sont signés directement avec nos maisons partenaires.</span><a href="confidentialite">Mentions légales et confidentialité</a></div>
   </div>
 </footer>
 </body>
