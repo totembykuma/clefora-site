@@ -174,8 +174,29 @@ input,select{font:300 19px var(--sans);color:var(--ink);background:transparent;b
 input:focus,select:focus{outline:none;border-color:var(--rose)}
 input::placeholder{color:#a79e9b}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:30px}
-.check{display:flex;gap:12px;align-items:flex-start;text-transform:none;letter-spacing:0;font-size:13px;font-weight:300}
-.check input{width:22px;height:22px;margin-top:0;accent-color:#4A1E26;flex:none}
+/* Formulaire de demande : une fiche de lin, filets fins, saisie en romain */
+#lead-form{background:var(--paper);border:1px solid var(--line);padding:clamp(28px,4.4vw,60px);gap:36px}
+#lead-form label{gap:4px;font-size:10px;letter-spacing:.3em}
+#lead-form input:not([type=checkbox]):not([type=radio]){font:400 24px/1.3 var(--serif);padding:8px 0 10px;border-bottom:1px solid var(--line);background:linear-gradient(var(--wine),var(--wine)) 0 100%/0 1px no-repeat;transition:background-size .8s var(--slow)}
+#lead-form input:not([type=checkbox]):not([type=radio]):focus{background-size:100% 1px;border-color:var(--line)}
+#lead-form input::placeholder{font-style:italic;color:#b3a9a6;opacity:1}
+#lead-form [aria-invalid]{border-color:#9B2C2C!important}
+.choices{border:0;margin:0;padding:0;min-width:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.choices legend{padding:0;margin-bottom:14px;font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft)}
+#lead-form .choice{position:relative;display:block;cursor:pointer;border:1px solid var(--line);padding:16px 16px 14px;text-transform:none;letter-spacing:0;transition:border-color .5s var(--slow),background .5s var(--slow),color .5s var(--slow)}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice b{display:block;font:400 21px/1.15 var(--serif);color:var(--ink);transition:color .5s}
+.choice small{display:block;margin-top:6px;font-size:9.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);transition:color .5s}
+#lead-form .choice:hover{border-color:var(--rose)}
+#lead-form .choice:has(:checked){background:var(--wine);border-color:var(--wine)}
+.choice:has(:checked) b{color:var(--ivory)}
+.choice:has(:checked) small{color:var(--rose-soft)}
+.choice:has(:focus-visible){outline:1px solid var(--rose);outline-offset:3px}
+#lead-form .check{display:flex;text-transform:none;letter-spacing:0;font-weight:300;gap:16px;align-items:flex-start;font-size:13px;line-height:1.65;color:var(--ink-soft);cursor:pointer}
+#lead-form .check input{flex:none;appearance:none;-webkit-appearance:none;width:18px;height:18px;margin:3px 0 0;border:1px solid var(--ink);background:transparent;cursor:pointer;transition:box-shadow .4s var(--slow),border-color .4s}
+#lead-form .check input:checked{border-color:var(--wine);box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 12px var(--wine)}
+#lead-form .check input:focus-visible{outline:1px solid var(--rose);outline-offset:3px}
+#lead-form .btn{width:100%}
 .zone{min-height:0;font-size:13.5px;color:var(--ink-soft);margin-top:-14px}
 .zone b{display:block;font-family:var(--serif);font-weight:400;font-size:22px;color:var(--wine);letter-spacing:0}
 .zone b.mid{color:var(--rose)}
@@ -205,7 +226,8 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--line-light);padding-to
   .doors,.trio,.rdv .wrap,footer .wrap{grid-template-columns:1fr}
   .door{min-height:72vh}
   .terms div{grid-template-columns:1fr;gap:6px}
-  .row,.refs{grid-template-columns:1fr}
+  .row,.refs,.choices{grid-template-columns:1fr}
+  .choice b{font-size:20px}
   .gallery{grid-template-columns:1fr 1fr}.gallery .tall{grid-column:1/-1;grid-row:auto}
   .lead{grid-template-columns:auto 1fr;gap:6px 20px}
   .lead .blur{display:none}
