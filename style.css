@@ -125,6 +125,32 @@ img,video{display:block;max-width:100%}
 .band::after{content:"";position:absolute;inset:0;background:rgba(20,11,13,.42)}
 .band blockquote{position:relative;z-index:1;margin:0;padding:0 24px;font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(32px,4.6vw,64px);line-height:1.15;max-width:18ch}
 
+/* Références */
+.refs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);max-width:900px;margin:0 auto;text-align:center}
+.refs ul{list-style:none;margin:18px 0 0;padding:0;font-family:var(--serif);font-size:clamp(24px,2.4vw,30px);line-height:1.6}
+
+/* Bourse aux leads */
+.market{background:var(--wine);color:var(--ivory)}
+.market .head{display:grid;gap:22px;max-width:640px}
+.market h2{font-size:clamp(40px,4.8vw,64px)}
+.market .caps{color:var(--rose-soft)}
+.market label{color:var(--rose-soft);max-width:420px;margin-top:48px}
+.market input{color:var(--ivory);border-color:var(--ivory);font-size:26px;font-family:var(--serif)}
+.market input:focus{border-color:var(--rose-soft)}
+.count{margin:56px 0 0;color:var(--rose-soft)}
+.leads{list-style:none;margin:18px 0 0;padding:0;border-top:1px solid var(--line-light)}
+.lead,.leads .none{display:grid;grid-template-columns:140px 1fr auto auto;gap:28px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line-light)}
+.leads .none{display:block;color:var(--rose-soft)}
+.leads .none a{color:var(--ivory)}
+.lead .cp{font-family:var(--serif);font-size:32px;line-height:1}
+.lead .sec{display:grid;font-size:15px}
+.lead .sec small{color:var(--rose-soft);font-size:12.5px}
+.lead .blur{filter:blur(6px);user-select:none;color:var(--rose-soft)}
+.lead .link{color:var(--ivory)}
+.market .terms{max-width:none;margin-top:clamp(72px,9vw,110px)}
+.market .terms div{border-color:var(--line-light)}
+.market .terms dt{color:var(--rose-soft)}
+
 /* Rendez-vous */
 .rdv{background:var(--paper-2)}
 .rdv .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,8vw,120px);align-items:start}
@@ -166,7 +192,10 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--line-light);padding-to
   .doors,.trio,.rdv .wrap,footer .wrap{grid-template-columns:1fr}
   .door{min-height:72vh}
   .terms div{grid-template-columns:1fr;gap:6px}
-  .row{grid-template-columns:1fr}
+  .row,.refs{grid-template-columns:1fr}
+  .lead{grid-template-columns:auto 1fr;gap:6px 20px}
+  .lead .blur{display:none}
+  .lead .link{grid-column:2}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}
