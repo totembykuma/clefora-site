@@ -3,257 +3,109 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Conciergerie Airbnb et ménage hôtelier à Paris | Clefora</title>
-<meta name="description" content="Conciergerie Airbnb, bail mobilité et ménage hôtelier à Paris et proche banlieue : Clefora vous met en relation avec le bon partenaire. Estimation sous 24 h, rappel le jour même.">
+<title>Clefora · Conciergerie et ménage hôtelier à Paris</title>
+<meta name="description" content="Maison de mise en relation à Paris : gestion locative courte durée et bail mobilité pour les propriétaires, ménage hôtelier pour les hôtels et conciergeries.">
 <link rel="canonical" href="https://clefora.fr/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta property="og:title" content="Clefora · Conciergerie Airbnb et ménage hôtelier à Paris">
-<meta property="og:description" content="Chaque bien trouve son partenaire. Gestion locative, ménage hôtelier et réseau de conciergeries.">
+<meta property="og:title" content="Clefora · Conciergerie et ménage hôtelier à Paris">
+<meta property="og:description" content="Maison de mise en relation à Paris : gestion locative courte durée et bail mobilité pour les propriétaires, ménage hôtelier pour les hôtels et conciergeries.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://clefora.fr/">
 <meta property="og:site_name" content="Clefora">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:image" content="https://clefora.fr/media/entree.jpg">
-<meta property="og:image:width" content="1280">
-<meta property="og:image:height" content="720">
-<meta property="og:image:alt" content="Entrée d'un hôtel particulier parisien">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#4A1E26">
-<link rel="preload" href="fonts/jost-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/cormorant-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/jost-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="media/entree.jpg" as="image">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://clefora.fr/#site","url":"https://clefora.fr/","name":"Clefora","inLanguage":"fr-FR"},{"@type":"ProfessionalService","@id":"https://clefora.fr/#org","name":"Clefora","url":"https://clefora.fr/","image":"https://clefora.fr/media/entree.jpg","description":"Mise en relation entre propriétaires, hôtels et conciergeries : gestion locative courte durée, bail mobilité et ménage hôtelier à Paris.","areaServed":[{"@type":"City","name":"Paris"}],"address":{"@type":"PostalAddress","addressLocality":"Paris","addressCountry":"FR"},"knowsAbout":["Conciergerie Airbnb","Bail mobilité","Ménage hôtelier","Gestion locative courte durée"]}]}</script>
 <link rel="stylesheet" href="style.css">
-<script src="app.js" defer></script>
+<script src="site.js" defer></script>
 </head>
-<body>
-<div class="intro" id="intro" role="dialog" aria-modal="true" aria-label="Entrée du palace Clefora">
-  <div class="crest"><b>CLEFORA</b><span>Maison de mise en relation · Paris</span></div>
-  <img id="intro-v" class="intro-img" src="media/entree.jpg" alt="">
-  <button class="btn light enter" id="enter" type="button">Entrer</button>
-  <div class="floor"></div>
-  
-</div>
-<ul class="floors" aria-label="Étages">
-  <li><a href="#top" data-f="top"><span>Le Hall</span></a></li>
-  <li><a href="#suite" data-f="suite"><span>La Suite royale</span></a></li>
-  <li><a href="#piscine" data-f="piscine"><span>La Piscine</span></a></li>
-  <li><a href="#bourse" data-f="bourse"><span>La Terrasse</span></a></li>
-  <li><a href="#contact" data-f="contact"><span>Le Salon</span></a></li>
-</ul>
-
-
-<div class="topbar"><div class="wrap"><span class="hide-m">Paris · Petite couronne · Toute la France</span><span>Rappel le jour même · <a href="#contact">06 69 92 21 71</a> · <a href="#contact">Réserver un appel</a></span></div></div>
-
+<body class="home">
 <header class="nav">
   <div class="wrap">
-    <ul>
-      <li><a href="#piscine">Propriétaires</a></li>
-      <li><a href="#suite">Hôtels &amp; conciergeries</a></li>
-    </ul>
-    <a class="brand" href="#top" aria-label="Clefora, accueil">
-      <span class="brand-row">
-        <b>CLEF<svg class="o" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="13" cy="11" r="2.6" fill="#8C4A55"/><path d="M11.6 12.6h2.8l.9 5.4h-4.6z" fill="#8C4A55"/></svg>RA</b>
-      </span>
-      <small>Maison de mise en relation</small>
-    </a>
-    <ul class="r">
-      <li><a href="#bourse">Bourse aux leads</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <ul><li><a href="proprietaires.html">Propriétaires</a></li><li><a href="hotels.html">Hôtels &amp; conciergeries</a></li></ul>
+    <a class="brand" href="index.html" aria-label="Clefora, accueil">CLEF<svg class="o" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11.5" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="13" cy="11" r="2.6" fill="#8C4A55"/><path d="M11.6 12.6h2.8l.9 5.4h-4.6z" fill="#8C4A55"/></svg>RA</a>
+    <ul class="r"><li><a href="partenaires.html">Conciergeries partenaires</a></li><li><a href="#rendez-vous">Contact</a></li></ul>
+    <button class="menu-btn" id="menu-btn" type="button" aria-controls="sheet">Menu</button>
   </div>
 </header>
-
-<main id="top">
-  <section class="wrap hero">
-    <span class="rule caps">Paris · depuis 2026</span>
-    <h1>L'art de confier <em>son bien</em>.</h1>
-    <p class="sub">Conciergerie Airbnb, bail mobilité et ménage hôtelier à Paris : deux maisons parisiennes, une seule porte. Qui êtes-vous ?</p>
-    <div class="doors">
-      <button class="door" type="button" data-go="piscine">
-        <span class="num">I</span>
-        <img src="media/logo-e090edc58d.png" loading="lazy" decoding="async" alt="Made for You">
-        <h3>Vous êtes propriétaire</h3>
-        <p>On loue et on entretient votre appartement.</p>
-        <span class="go">Descendre à la piscine</span>
-      </button>
-      <button class="door" type="button" data-go="suite">
-        <span class="num">II</span>
-        <img src="media/logo-8f74bda03c.png" loading="lazy" decoding="async" alt="Capital Nettoyage">
-        <h3>Vous êtes hôtel ou conciergerie</h3>
-        <p>Le ménage au standard palace.</p>
-        <span class="go">Monter à la suite royale</span>
-      </button>
+<nav class="sheet" id="sheet" aria-label="Menu">
+  <button class="close" type="button">Fermer</button>
+  <a href="index.html">Accueil</a><a href="proprietaires.html">Propriétaires</a><a href="hotels.html">Hôtels &amp; conciergeries</a><a href="partenaires.html">Conciergeries partenaires</a><a href="#rendez-vous">Contact</a>
+</nav>
+<main>
+  <section class="stage" aria-label="Clefora">
+    <video id="v" src="media/entree.mp4" poster="media/entree.jpg" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
+    <div class="in">
+      <div class="mark" aria-hidden="true"><span style="--i:0">C</span><span style="--i:1">L</span><span style="--i:2">E</span><span style="--i:3">F</span><span style="--i:4">O</span><span style="--i:5">R</span><span style="--i:6">A</span></div>
+      <h1 class="late d1">L'art de confier <em>son bien</em>.</h1>
+      <span class="caps late d2">Maison de mise en relation · Paris</span>
     </div>
-    <p class="third">Conciergerie hors de Paris ? <a href="#bourse">Montez sur la terrasse</a>.</p>
+    <span class="cue" aria-hidden="true"></span>
   </section>
 
-  <div class="facts">
+  <section class="s wrap manifest">
+    <span class="caps rose rv">La maison</span>
+    <p class="big rv">Nous ouvrons à chacun <em>la bonne porte</em> : la conciergerie qui fera vivre votre appartement, la maison qui tiendra vos chambres comme celles d'un palace.</p>
+    <span class="sep rv" aria-hidden="true"></span>
+  </section>
+
+  <section class="doors" aria-label="Qui êtes-vous ?">
+    <a class="door" href="proprietaires.html">
+      <img src="media/piscine.jpg" alt="" loading="lazy" decoding="async">
+      <span class="caps">I · Propriétaires</span>
+      <h2>Votre appartement, tenu comme une suite.</h2>
+      <p>Location, accueil, entretien. Vous n'avez qu'à en recevoir les revenus.</p>
+      <span class="link">Entrer</span>
+    </a>
+    <a class="door" href="hotels.html">
+      <img src="media/suite.jpg" alt="" loading="lazy" decoding="async">
+      <span class="caps">II · Hôtels &amp; conciergeries</span>
+      <h2>La propreté d'un palace, à chaque rotation.</h2>
+      <p>Ménage et linge hôtelier, par une maison familiale née dans l'hôtellerie.</p>
+      <span class="link">Entrer</span>
+    </a>
+  </section>
+
+  <div class="houses" aria-label="Nos maisons partenaires"><div class="wrap"><img src="media/logo-e090edc58d.png" alt="Made for You" loading="lazy" decoding="async"><img src="media/logo-8f74bda03c.png" alt="Capital Nettoyage" loading="lazy" decoding="async"></div></div>
+  <p class="aside wrap">Vous êtes une conciergerie, ailleurs en France ? <a href="partenaires.html">Rejoignez notre réseau</a>.</p>
+
+  <section class="s rdv" id="rendez-vous">
     <div class="wrap">
-      <div class="fact"><b>20</b><span>arrondissements couverts</span></div>
-      <div class="fact"><b>5 min</b><span>à pied d'un métro, au plus</span></div>
-      <div class="fact"><b>2</b><span>maisons partenaires</span></div>
-      <div class="fact"><b>Jour même</b><span>délai de rappel</span></div>
-    </div>
-  </div>
-
-  <section class="room" id="suite">
-    <div class="scene" aria-hidden="true"><img class="bgv" src="media/suite.jpg" alt=""><div class="scene-cap"><div class="in"><span class="caps">Étage I · La Suite royale</span><h2>Capital Nettoyage</h2></div></div></div>
-    <div class="wrap room-body">
-      <div class="uni">
-        <div class="story">
-          <img src="media/logo-8f74bda03c.png" loading="lazy" decoding="async" alt="Capital Nettoyage">
-          <h3>La propreté d'un palace, à chaque rotation.</h3>
-          <p class="lede">Entreprise familiale, 20 ans d'hôtellerie.</p>
-          <ul class="chips">
-            <li class="chip"><b>Dès 60 €</b><span>TTC le ménage</span></li>
-            <li class="chip"><b>Linge</b><span>haut de gamme</span></li>
-            <li class="chip"><b>Photo</b><span>de chaque ménage</span></li>
-            <li class="chip"><b>0</b><span>engagement</span></li>
-            <li class="chip"><b>24 h</b><span>pour le devis</span></li>
-            <li class="chip"><b>Hiscox</b><span>assuré</span></li>
-          </ul>
-          <div class="trust"><span class="caps gold">Ils nous font déjà confiance</span>
-            <div><b>Conciergeries</b><ul><li>Airbnyou</li><li>Made for You</li><li>UpperKey</li><li>Keypers</li></ul></div>
-            <div><b>Hôtels</b><ul><li>EnSuite</li><li>Beauquartier</li><li>Frenchospitality</li><li>Sereners</li><li>Poetic Stay</li></ul></div>
-          </div>
-        </div>
-        <div class="card">
-          <h4>Composez votre devis</h4>
-          <p class="hint">Trois clics, devis sous 24 h.</p>
-          <div class="choice" role="group" aria-label="Établissement">
-            <button type="button" data-est="Hôtel" aria-pressed="true">Hôtel</button>
-            <button type="button" data-est="Conciergerie" aria-pressed="false">Conciergerie</button>
-          </div>
-          <label for="nb"><span id="nb-l">Nombre de chambres</span><input id="nb" type="range" min="1" max="100" value="24" style="border:0;accent-color:#8C4A55"></label>
-          <div class="amount" id="nb-out" style="font-size:44px">24 <small>chambres</small></div>
-          <div class="choice" role="group" aria-label="Linge">
-            <button type="button" data-linge="Avec linge" aria-pressed="true">Avec linge</button>
-            <button type="button" data-linge="Sans linge" aria-pressed="false">Sans linge</button>
-          </div>
-          
-          <a class="btn fill" href="#contact" id="devis-cta" data-pre="Hôtel / conciergerie">Recevoir mon devis</a>
-        </div>
+      <div class="intro rv">
+        <span class="caps rose">Contact</span>
+        <h2>Parlons de <em>votre projet</em>.</h2>
+        <p>Un appel suffit. Nous vous écoutons, puis nous vous présentons la maison qui vous correspond.</p>
+        <a class="phone" href="tel:+33669922171">06 69 92 21 71</a>
+        <p class="fine">Du lundi au vendredi, de 10 h à 19 h.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="room" id="piscine">
-    <div class="scene" aria-hidden="true"><img class="bgv" src="media/piscine.jpg" alt=""><div class="scene-cap"><div class="in"><span class="caps">Étage II · La Piscine</span><h2>Made for You</h2></div></div></div>
-    <div class="wrap room-body">
-      <div class="uni">
-        <div class="story">
-          <img src="media/logo-e090edc58d.png" loading="lazy" decoding="async" alt="Made for You">
-          <h3>Votre appartement, tenu comme une suite.</h3>
-          <p class="lede">Location, accueil, entretien. Made for You s'en charge, avec la discrétion d'un grand hôtel.</p>
-          <dl class="pillars">
-            <div class="pillar"><dt>Honoraires</dt><dd>20 % en courte durée, 15 % en bail mobilité. Rien d'autre.</dd></div>
-            <div class="pillar"><dt>Délais</dt><dd>Estimation sous 24 heures, photographies sous 72 heures.</dd></div>
-            <div class="pillar"><dt>Adresses</dt><dd>Paris et petite couronne, à cinq minutes à pied d'une station de métro.</dd></div>
-          </dl>
-        </div>
-        <div class="card">
-          <h4>Une estimation, en toute discrétion.</h4>
-          <p class="hint">Indiquez votre code postal. Nous vous rappelons sous 24 heures.</p>
-          <label for="cp">Code postal<input id="cp" inputmode="numeric" maxlength="5" autocomplete="postal-code" placeholder="75008"></label>
-          <div class="out" id="zone-out" aria-live="polite"></div>
-          <a class="btn fill" href="#contact" data-pre="Propriétaire">Demander mon estimation</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="partners" aria-label="Maisons partenaires">
-    <div class="wrap">
-      <span class="caps gold">Nos maisons partenaires</span>
-      <img src="media/logo-e090edc58d.png" loading="lazy" decoding="async" alt="Made for You">
-      <img src="media/logo-8f74bda03c.png" loading="lazy" decoding="async" alt="Capital Nettoyage">
-    </div>
-  </div>
-
-  <section class="s market" id="bourse">
-    <div class="scene" aria-hidden="true"><img class="bgv" src="media/terrasse.jpg" alt=""><div class="scene-cap"><div class="in"><span class="caps">Étage III · La Terrasse</span><h2>Vue sur toute la France</h2></div></div></div>
-    
-    <div class="wrap">
-      <div class="head">
-        <span class="rule caps" style="color:var(--gold-soft)">Réservé aux conciergeries</span>
-        <h2>La bourse aux <em>propriétaires</em>.</h2>
-        <p>Des propriétaires qualifiés, près de chez vous. Tapez votre code postal.</p>
-      </div>
-      <div class="search">
-        <label for="lead-cp">Votre code postal ou département<input id="lead-cp" inputmode="numeric" maxlength="5" value="91"></label>
-      </div>
-      <p class="count caps" id="lead-count" aria-live="polite"></p>
-      <div class="leads" id="leads"></div>
-      <ul class="chips light">
-        <li class="chip"><b>Qualifié</b><span>par téléphone</span></li>
-        <li class="chip"><b>Exclusif</b><span>vendu une fois</span></li>
-        <li class="chip"><b>Consenti</b><span>RGPD</span></li>
-        <li class="chip"><b>0</b><span>abonnement</span></li>
-      </ul>
-      <p class="demo">Coordonnées transmises après achat.</p>
-    </div>
-  </section>
-
-  <section class="s">
-    <div class="wrap">
-      <div class="head">
-        <span class="rule caps">Le parcours</span>
-        <h2>Quatre étapes, <em>c'est tout</em>.</h2>
-      </div>
-      <div class="path">
-        <div><b>i</b><h3>Vous nous écrivez</h3></div>
-        <div><b>ii</b><h3>Nous vous rappelons</h3></div>
-        <div><b>iii</b><h3>Nous ouvrons la bonne porte</h3></div>
-        <div><b>iv</b><h3>Nous restons présents</h3></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="s" id="contact" style="background:var(--paper-2);border-top:1px solid var(--line)">
-    <div class="wrap contact">
-      <div style="display:grid;gap:28px">
-        <span class="caps gold">Contact</span>
-        <h2>Parlons de votre <em>projet</em>.</h2>
-        <p style="color:var(--ink-soft);max-width:42ch">Du lundi au vendredi, de 10 h à 19 h.</p>
-        <div style="display:grid;gap:8px">
-          <span class="caps" style="color:var(--ink-soft)">Ligne directe</span>
-          <span class="phone">06 69 92 21 71</span>
-        </div>
-        <div style="display:grid;gap:4px;font-size:14px;color:var(--ink-soft)">
-          <span>Propriétaires : <span class="mail" data-u="wb" data-d="madeforyouconciergerie.fr" style="color:var(--ink)"></span></span>
-          <span>Hôtels &amp; conciergeries : <span class="mail" data-u="william" data-d="capitalnettoyage.fr" style="color:var(--ink)"></span></span>
-        </div>
-      </div>
-      <form id="lead-form" novalidate>
-        <span class="caps gold" id="rdv">Réserver un appel</span>
-        <p class="fine" style="margin:0">Étape 1 : vos coordonnées. Étape 2 : vous choisissez votre créneau (lundi au vendredi, 10 h à 19 h).</p>
+      <form id="lead-form" class="rv" novalidate>
         <div class="row">
           <label for="f-name">Prénom et nom<input id="f-name" autocomplete="name"></label>
           <label for="f-tel">Téléphone<input id="f-tel" type="tel" autocomplete="tel"></label>
         </div>
-        <div class="row">
-          <label for="f-prof">Vous êtes
-            <select id="f-prof"><option>Propriétaire</option><option>Hôtel / conciergerie</option><option>Conciergerie partenaire</option></select>
-          </label>
-          <label for="f-cp">Code postal<input id="f-cp" inputmode="numeric" maxlength="5"></label>
-        </div>
+        <label for="f-prof">Vous êtes<select id="f-prof"><option>Propriétaire</option><option>Hôtel / conciergerie</option><option>Conciergerie partenaire</option></select></label>
+        <label for="f-cp">Code postal<input id="f-cp" inputmode="numeric" maxlength="5" autocomplete="postal-code"></label>
         <label class="check" for="f-rgpd"><input id="f-rgpd" type="checkbox" required>J'accepte d'être recontacté et que ma demande soit transmise au bon partenaire.</label>
-        <button class="btn fill" type="submit">Continuer vers mon créneau</button>
-        <input type="text" name="site_web" id="f-hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0"><p class="fine">Vos coordonnées servent uniquement à vous rappeler et à transmettre votre demande au partenaire concerné. <a href="confidentialite.html">En savoir plus</a>.</p>
-        <div class="okmsg" id="ok" role="status" aria-live="polite" hidden></div>
+        <div><button class="btn fill" type="submit">Choisir mon créneau</button></div>
+        <input type="text" name="site_web" id="f-hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="fine">Vos coordonnées servent uniquement à vous rappeler et à transmettre votre demande au partenaire concerné. <a href="confidentialite.html">En savoir plus</a>.</p>
+        <p class="okmsg" id="ok" role="status" aria-live="polite" hidden></p>
         <a id="rdv-next" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ19p-XRw6DHfBLPKKoHdhRiLhGFMdUIKILHLs0DaoYWiAEFn2NY4NinHK8IGGSyq4xHcgd0jCD3" hidden></a>
       </form>
     </div>
   </section>
 </main>
-
 <footer>
   <div class="wrap">
-    <div><b>CLEFORA</b>Maison de mise en relation immobilière et hôtelière. Paris.</div>
-    <div>Apporteur d'affaires indépendant. Les mandats de gestion et contrats de ménage sont signés directement avec nos maisons partenaires.</div>
-    <div>Clefora · Paris<br>06 69 92 21 71<br><a href="confidentialite.html">Mentions légales et confidentialité</a></div>
+    <div><a class="brand" href="index.html" aria-label="Clefora, accueil">CLEF<svg class="o" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11.5" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="13" cy="11" r="2.6" fill="#8C4A55"/><path d="M11.6 12.6h2.8l.9 5.4h-4.6z" fill="#8C4A55"/></svg>RA</a><p>Maison de mise en relation immobilière et hôtelière, à Paris.</p></div>
+    <ul><li><a href="proprietaires.html">Propriétaires</a></li><li><a href="hotels.html">Hôtels &amp; conciergeries</a></li><li><a href="partenaires.html">Conciergeries partenaires</a></li></ul>
+    <ul><li><a href="tel:+33669922171">06 69 92 21 71</a></li><li>Lundi au vendredi, 10 h à 19 h</li><li>Paris et petite couronne</li></ul>
+    <div class="legal"><span>Apporteur d'affaires indépendant. Les mandats et contrats sont signés directement avec nos maisons partenaires.</span><a href="confidentialite.html">Mentions légales et confidentialité</a></div>
   </div>
 </footer>
 </body>
