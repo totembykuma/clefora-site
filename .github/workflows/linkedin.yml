@@ -1,0 +1,18 @@
+name: Posts LinkedIn
+on:
+  schedule:
+    - cron: "35 6,7 * * *"   # 8h35 à Paris (été comme hiver, le script ne publie qu'après 8h30)
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  flux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/linkedin_flux.py
+      - run: |
+          git config user.name "clefora-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add linkedin/flux.xml
+          git diff --cached --quiet || (git commit -m "Post LinkedIn du jour" && git push)
