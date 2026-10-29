@@ -93,7 +93,7 @@ img,video{display:block;max-width:100%}
 .door::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,11,13,.2) 0%,rgba(20,11,13,.35) 40%,rgba(20,11,13,.88));transition:opacity 1s}
 .door>*{text-shadow:0 1px 18px rgba(20,11,13,.45)}
 .door:hover img{transform:scale(1)}
-.door .caps{color:var(--ivory)}
+.door .caps{color:#EBD3D7}
 .door h2{font-size:clamp(36px,4.2vw,60px);margin:14px 0 22px;max-width:12ch}
 .door p{max-width:34ch;margin-bottom:30px;font-size:18px}
 
