@@ -1,7 +1,7 @@
 name: Posts LinkedIn
 on:
   schedule:
-    - cron: "35 6,7 * * *"   # 8h35 à Paris (été comme hiver, le script ne publie qu'après 8h30)
+    - cron: "5 8,9 * * *"   # 10h05 à Paris (été comme hiver, le script ne publie qu'après 10h)
   workflow_dispatch:
 permissions:
   contents: write
