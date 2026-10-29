@@ -146,35 +146,19 @@
         <div class="story">
           <img src="media/logo-e090edc58d.png" loading="lazy" decoding="async" alt="Made for You">
           <h3>Votre appartement, tenu comme une suite.</h3>
-          <p class="lede">On loue, on accueille, on entretient. Vous encaissez.</p>
-          <ul class="chips">
-            <li class="chip"><b>+54 %</b><span>de revenus, selon Made for You</span></li>
-            <li class="chip"><b>20 %</b><span>courte durée</span></li>
-            <li class="chip"><b>15 %</b><span>bail mobilité</span></li>
-            <li class="chip"><b>5 min</b><span>max à pied d'un métro</span></li>
-            <li class="chip"><b>24 h</b><span>pour l'estimation</span></li>
-            <li class="chip"><b>72 h</b><span>pour les photos</span></li>
-          </ul>
-          <p class="fine">Paris et petite couronne.</p>
+          <p class="lede">Location, accueil, entretien. Made for You s'en charge, avec la discrétion d'un grand hôtel.</p>
+          <dl class="pillars">
+            <div class="pillar"><dt>Honoraires</dt><dd>20 % en courte durée, 15 % en bail mobilité. Rien d'autre.</dd></div>
+            <div class="pillar"><dt>Délais</dt><dd>Estimation sous 24 heures, photographies sous 72 heures.</dd></div>
+            <div class="pillar"><dt>Adresses</dt><dd>Paris et petite couronne, à cinq minutes à pied d'une station de métro.</dd></div>
+          </dl>
         </div>
         <div class="card">
-          <h4>Votre bien est-il éligible ?</h4>
-          <p class="hint">Votre code postal, et c'est parti.</p>
-          <label for="cp">Code postal<input id="cp" inputmode="numeric" maxlength="5" value="75008"></label>
+          <h4>Une estimation, en toute discrétion.</h4>
+          <p class="hint">Indiquez votre code postal. Nous vous rappelons sous 24 heures.</p>
+          <label for="cp">Code postal<input id="cp" inputmode="numeric" maxlength="5" autocomplete="postal-code" placeholder="75008"></label>
           <div class="out" id="zone-out" aria-live="polite"></div>
-          <div class="choice" role="group" aria-label="Type de location">
-            <button type="button" data-mode="cd" aria-pressed="true">Courte durée</button>
-            <button type="button" data-mode="bm" aria-pressed="false">Bail mobilité</button>
-          </div>
-          <label for="typ">Type de bien
-            <select id="typ"><option value="0">Studio</option><option value="1" selected>2 pièces</option><option value="2">3 pièces</option><option value="3">4 pièces et plus</option></select>
-          </label>
-          <div class="out" aria-live="polite">
-            <span class="fine">Revenu brut estimé par mois</span>
-            <div class="amount" id="sim-out">—</div>
-            <span class="fine" id="sim-note"></span>
-          </div>
-          <a class="btn fill" href="#contact" data-pre="Propriétaire">Faire estimer mon bien</a>
+          <a class="btn fill" href="#contact" data-pre="Propriétaire">Demander mon estimation</a>
         </div>
       </div>
     </div>

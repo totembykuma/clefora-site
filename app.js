@@ -36,33 +36,24 @@ document.addEventListener("click",function(e){var a=e.target.closest("#rdv-next"
   var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   /* Éligibilité */
   var metro={"92100":"Boulogne-Billancourt","92130":"Issy-les-Moulineaux","92300":"Levallois-Perret","92200":"Neuilly-sur-Seine","92110":"Clichy","92120":"Montrouge","92240":"Malakoff","92170":"Vanves","92800":"Puteaux","92400":"Courbevoie","92600":"Asnières-sur-Seine","92230":"Gennevilliers","92220":"Bagneux","92320":"Châtillon","92150":"Suresnes","93200":"Saint-Denis","93400":"Saint-Ouen","93100":"Montreuil","93170":"Bagnolet","93260":"Les Lilas","93500":"Pantin","93300":"Aubervilliers","93310":"Le Pré-Saint-Gervais","93000":"Bobigny","93120":"La Courneuve","93230":"Romainville","93110":"Rosny-sous-Bois","94300":"Vincennes","94160":"Saint-Mandé","94220":"Charenton-le-Pont","94200":"Ivry-sur-Seine","94270":"Le Kremlin-Bicêtre","94800":"Villejuif","94700":"Maisons-Alfort","94000":"Créteil"};
-  var cp=document.getElementById("cp"),zo=document.getElementById("zone-out"),sector=1;
+  var cp=document.getElementById("cp"),zo=document.getElementById("zone-out");
   function zone(){
     var v=cp.value.replace(/\D/g,""),n=+v;
+    if(!v){zo.innerHTML="";return}
     if(v.length<5){zo.innerHTML='<span class="fine">Saisissez les 5 chiffres du code postal.</span>';return}
     if((n>=75001&&n<=75020)||n===75116){
-      var arr=n===75116?16:n-75000;sector=[1,2,3,4,5,6,7,8,16].indexOf(arr)>-1?1.18:1;
+      var arr=n===75116?16:n-75000;
       zo.innerHTML='<p class="verdict ok">Éligible · Paris '+arr+'<sup>e</sup></p><p class="fine">Made for You gère votre arrondissement. La distance au métro est vérifiée lors de l\'appel.</p>';
-    }else if(metro[v]){sector=.82;
+    }else if(metro[v]){
       zo.innerHTML='<p class="verdict ok">Éligible · '+metro[v]+'</p><p class="fine">Commune desservie par le métro. Votre bien doit se trouver à 5 minutes à pied d\'une station.</p>';
-    }else if(/^(92|93|94)/.test(v)){sector=.82;
+    }else if(/^(92|93|94)/.test(v)){
       zo.innerHTML='<p class="verdict mid">À vérifier ensemble</p><p class="fine">Laissez votre numéro, nous regardons votre adresse exacte.</p>';
-    }else{sector=.82;
+    }else{
       zo.innerHTML='<p class="verdict mid">Une conciergerie partenaire vous accompagne</p><p class="fine">Votre bien est hors de Paris : nous vous mettons en relation avec une conciergerie de votre secteur.</p>';
     }
-    sim();
   }
-  /* Simulateur : données marché, mises à jour chaque semaine (sources : Airbtics, BnbCalc, annonces meublées moyenne durée) */
-  var MARKET={maj:"28 oct. 2026",nightly:[105,150,260,350],occ:.68,monthly:[1300,1900,2700,3800]};
-  var nightly=MARKET.nightly,monthly=MARKET.monthly,mode="cd",typ=document.getElementById("typ"),fmt=new Intl.NumberFormat("fr-FR");
-  function sim(){
-    var i=+typ.value,b=mode==="cd"?nightly[i]*sector*30.4*MARKET.occ:monthly[i]*sector;
-    document.getElementById("sim-out").innerHTML=fmt.format(Math.round(b*.9/50)*50)+" à "+fmt.format(Math.round(b*1.1/50)*50)+" <small>€</small>";
-    document.getElementById("sim-note").textContent=mode==="cd"?"Prix moyen du marché par nuit, "+Math.round(MARKET.occ*100)+" % d'occupation. Données du "+MARKET.maj+".":"Loyer meublé moyenne durée du marché. Données du "+MARKET.maj+".";
-  }
+  cp.addEventListener("input",zone);zone();
   function group(sel,attr,cb){var bs=document.querySelectorAll(sel);bs.forEach(function(b){b.addEventListener("click",function(){bs.forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});cb(b.dataset[attr])})})}
-  group("[data-mode]","mode",function(m){mode=m;sim()});
-  typ.addEventListener("change",sim);cp.addEventListener("input",zone);zone();
 
   /* Devis ménage */
   var nb=document.getElementById("nb"),est="Hôtel";
