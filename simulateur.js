@@ -37,13 +37,13 @@
     rows.forEach(function(r){var key=r.dataset.k,n=net[key];
       r.querySelector(".v").innerHTML=r50(n.v*.9)+" – "+r50(n.v*1.1)+"<small>€</small>";
       r.querySelector(".n span").textContent=(key==="lc"?"Loyer meublé ≈ ":"Loyers ≈ ")+r50(brut[key])+" €";
-      r.querySelector(".n b").textContent=key==="lc"?"− vacance "+r50(n.va)+" € · gestion à votre charge":"− plateforme "+r50(n.pl)+" € · − honoraires "+r50(n.ho)+" €";
+      r.querySelector(".n b").textContent=key==="lc"?"− vacance "+r50(n.va)+" € · gestion à votre charge":"Frais de plateforme et honoraires ("+Math.round(M.hon[key]*100)+" %) déduits";
       r.querySelector(".bar i").style.width=Math.round(n.v/net[best].v*100)+"%";
       r.classList.toggle("best",key===best);
       summ.push(key.toUpperCase()+" net "+r50(n.v)+" €");
     });
     var gain=Math.round((net[best].v/net.lc.v-1)*100),an=Math.round((net[best].v-net.lc.v)*12/100)*100;
-    msg.innerHTML=best==="lc"||gain<8?"Pour ce bien, l’écart avec une location classique reste faible : <em>parlons-en ensemble</em>.":"Environ <em>"+fmt.format(an)+" € de plus par an</em> qu’en location classique ("+(gain>0?"+":"")+gain+" %), tous frais payés, sans vous en occuper.";
+    msg.innerHTML=best==="lc"||gain<8?"Pour ce bien, l’écart avec une location classique reste faible : <em>parlons-en ensemble</em>.":"Environ <em>"+r50(net[best].v-net.lc.v)+" € de plus par mois</em>, soit "+fmt.format(an)+" € par an, qu’en location classique ("+(gain>0?"+":"")+gain+" %), tous frais payés, sans vous en occuper.";
     if(fsim)fsim.value=c+" · "+LBL[p]+(m?" · "+m+" m²":"")+" · "+summ.join(" / ");
     if(fcp&&!fcp.value){fcp.value=c;fcp.dispatchEvent(new Event("input"))}
   }
