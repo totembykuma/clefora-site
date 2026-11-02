@@ -75,7 +75,7 @@ document.addEventListener("click",function(e){var a=e.target.closest("#rdv-next"
     try{if(Date.now()-(+localStorage.getItem("clefora_last")||0)<60000){msg("Votre demande est déjà enregistrée. Choisissez votre créneau d’appel.");openCal();return}}catch(_){}
     sending=true;btn.disabled=true;
     fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({
-      access_key:prof!=="Hôtel / conciergerie"?KEY_MFY:ACCESS_KEY,subject:"Clefora · nouvelle demande ("+prof+")",from_name:"Site Clefora",nom:name.slice(0,80),telephone:tel,profil:prof,code_postal:cpv,botcheck:""})})
+      access_key:prof!=="Hôtel / conciergerie"?KEY_MFY:ACCESS_KEY,subject:"Clefora · nouvelle demande ("+prof+")",from_name:"Site Clefora",nom:name.slice(0,80),telephone:tel,profil:prof,code_postal:cpv,estimation:(document.getElementById("f-sim")||{}).value||undefined,botcheck:""})})
     .then(function(r){return r.json()}).then(function(d){
       if(d.success){msg("Merci. Dernière étape : choisissez votre créneau d’appel.");openCal();f.reset();if(zo)zo.innerHTML="";try{localStorage.setItem("clefora_last",Date.now())}catch(_){}}
       else msg("L’envoi n’a pas abouti. Merci de réessayer dans un instant.",1);
