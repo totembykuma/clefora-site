@@ -13,6 +13,9 @@
   box.innerHTML='<div class="cg-head"><div><b>Le concierge</b><small>Clefora · réponse immédiate</small></div><button class="cg-x" type="button" aria-label="Fermer">×</button></div>'+
     '<div class="cg-log" aria-live="polite"></div>'+
     '<form class="cg-form" autocomplete="on"><input type="text" name="q" placeholder="Votre question…" aria-label="Votre message" maxlength="200"><input type="text" name="website" tabindex="-1" autocomplete="off" hidden><button type="submit">Envoyer</button></form>';
+  /* Caché tant que assistant.css n'est pas chargé : évite le flash du panneau à l'arrivée sur la page */
+  btn.style.display=box.style.display="none";
+  css.onload=function(){btn.style.display=box.style.display=""};
   document.body.appendChild(btn);document.body.appendChild(box);
   var log=box.querySelector(".cg-log"),form=box.querySelector(".cg-form"),inp=form.q,started=false,t0=0,sending=false;
 
