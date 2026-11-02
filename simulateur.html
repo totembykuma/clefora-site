@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Simulateur de revenus locatifs à Paris · Clefora</title>
-<meta name="description" content="Combien rapporterait votre appartement à Paris ? Comparez en un instant courte durée, bail mobilité et location classique, avant et après honoraires.">
+<meta name="description" content="Combien rapporterait votre appartement à Paris ? Comparez en un instant courte durée, bail mobilité et location classique, net de frais de plateforme et d’honoraires.">
 <link rel="canonical" href="https://clefora.fr/simulateur">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:title" content="Simulateur de revenus locatifs à Paris · Clefora">
-<meta property="og:description" content="Combien rapporterait votre appartement à Paris ? Comparez en un instant courte durée, bail mobilité et location classique, avant et après honoraires.">
+<meta property="og:description" content="Combien rapporterait votre appartement à Paris ? Comparez en un instant courte durée, bail mobilité et location classique, net de frais de plateforme et d’honoraires.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://clefora.fr/simulateur">
 <meta property="og:site_name" content="Clefora">
@@ -36,7 +36,7 @@
 .sim-res .r .caps{color:var(--rose);align-self:end}
 .sim-res .r .v{font:300 clamp(34px,4.4vw,54px)/1 var(--serif);text-align:right;white-space:nowrap}
 .sim-res .r .v small{font-size:.45em;color:var(--ink-soft);margin-left:4px}
-.sim-res .r .n{grid-column:1/-1;font-size:14px;color:var(--ink-soft);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.sim-res .r .n{grid-column:1/-1;font-size:13.5px;color:var(--ink-soft);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .sim-res .bar{grid-column:1/-1;margin-top:10px;height:1px;background:var(--line);position:relative;overflow:hidden}
 .sim-res .bar i{position:absolute;inset:0 auto 0 0;width:0;background:var(--wine);transition:width 1.2s var(--slow)}
 .sim-res .r.best .v{color:var(--wine)}
@@ -75,27 +75,37 @@
         <span class="caps rose">Votre bien</span>
         <div class="two">
           <label for="s-cp">Code postal<input id="s-cp" inputmode="numeric" maxlength="5" autocomplete="postal-code" placeholder="75008"></label>
-          <label for="s-m2">Surface en m²<input id="s-m2" inputmode="numeric" maxlength="3" placeholder="45"></label>
+          <label for="s-m2">Surface en m² (facultatif)<input id="s-m2" inputmode="numeric" maxlength="3" placeholder="45"></label>
+        </div>
+        <div>
+          <span class="caps" style="font-size:10px;letter-spacing:.3em">Nombre de pièces</span>
+          <div class="modes" role="group" aria-label="Nombre de pièces" style="margin-top:12px">
+            <button type="button" data-p="0" aria-pressed="false">Studio</button>
+            <button type="button" data-p="1" aria-pressed="true">2 pièces</button>
+            <button type="button" data-p="2" aria-pressed="false">3 pièces</button>
+            <button type="button" data-p="3" aria-pressed="false">4 pièces</button>
+            <button type="button" data-p="4" aria-pressed="false">5 et plus</button>
+          </div>
         </div>
         <div>
           <span class="caps" style="font-size:10px;letter-spacing:.3em">État du bien</span>
           <div class="modes" role="group" aria-label="État du bien" style="margin-top:12px">
             <button type="button" data-q="0.92" aria-pressed="false">À rafraîchir</button>
             <button type="button" data-q="1" aria-pressed="true">Bon état</button>
-            <button type="button" data-q="1.12" aria-pressed="false">Rénové, de standing</button>
+            <button type="button" data-q="1.08" aria-pressed="false">Rénové, de standing</button>
           </div>
         </div>
-        <p class="sim-out" id="sim-msg" aria-live="polite">Indiquez le code postal et la surface : <em>l’estimation s’affiche aussitôt</em>.</p>
+        <p class="sim-out" id="sim-msg" aria-live="polite">Indiquez le code postal et le nombre de pièces : <em>l’estimation s’affiche aussitôt</em>.</p>
       </form>
 
       <div class="rv">
-        <span class="caps rose">Revenu estimé par mois</span>
+        <span class="caps rose">Ce qui vous reste chaque mois</span>
         <div class="sim-res" id="sim-res" aria-live="polite" style="margin-top:22px">
-          <div class="r" data-k="cd"><span class="caps">Courte durée</span><span class="v">—</span><p class="n"><span>Après honoraires de 20 %</span><b></b></p><div class="bar"><i></i></div></div>
-          <div class="r" data-k="bm"><span class="caps">Bail mobilité</span><span class="v">—</span><p class="n"><span>Après honoraires de 15 %</span><b></b></p><div class="bar"><i></i></div></div>
-          <div class="r" data-k="lc"><span class="caps">Location classique</span><span class="v">—</span><p class="n"><span>Bail meublé d’un an, géré par vous</span><b></b></p><div class="bar"><i></i></div></div>
+          <div class="r" data-k="cd"><span class="caps">Courte durée</span><span class="v">—</span><p class="n"><span></span><b></b></p><div class="bar"><i></i></div></div>
+          <div class="r" data-k="bm"><span class="caps">Bail mobilité</span><span class="v">—</span><p class="n"><span></span><b></b></p><div class="bar"><i></i></div></div>
+          <div class="r" data-k="lc"><span class="caps">Location classique</span><span class="v">—</span><p class="n"><span></span><b></b></p><div class="bar"><i></i></div></div>
         </div>
-        <p class="sim-fine">Fourchettes brutes indicatives, établies à partir des prix moyens observés sur le marché parisien (nuitées, taux d’occupation, loyers meublés). En courte durée, une résidence principale à Paris est limitée à 90 nuits par an ; au-delà, un changement d’usage est nécessaire. Seule une estimation personnalisée tient compte de votre adresse exacte, de l’étage et de la proximité du métro.</p>
+        <p class="sim-fine">Montants nets, après frais de plateforme et honoraires de gestion, avant charges, impôts et assurance. Estimation volontairement prudente, établie à partir des prix moyens du marché parisien (nuitées, taux d’occupation de 65 %, loyers meublés). En courte durée, une résidence principale à Paris est limitée à 90 nuits par an ; au-delà, un changement d’usage est nécessaire. Seule une estimation personnalisée tient compte de votre adresse exacte, de l’étage et de la proximité du métro.</p>
       </div>
     </div>
   </section>
