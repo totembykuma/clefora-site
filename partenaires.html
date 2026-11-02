@@ -25,6 +25,7 @@
 <script src="site.js" defer></script>
 <script src="assistant.js" defer></script>
 <script src="bourse.js" defer></script>
+<script src="alertes.js" defer></script>
 </head>
 <body>
 <header class="nav">
@@ -62,6 +63,17 @@
       <p class="count caps" id="lead-count" aria-live="polite"></p>
       <ul class="leads" id="leads"></ul>
       <p class="count caps buy">Paiement sécurisé par carte · <a href="conditions-leads">Conditions de vente</a></p>
+      <form id="alert-form" class="alert rv" novalidate>
+        <div class="ahead"><span class="caps">Alertes</span><p>Soyez prévenu <em>le premier</em> quand un propriétaire arrive dans votre secteur.</p></div>
+        <div class="arow">
+          <label for="a-mail">Votre e-mail<input id="a-mail" type="email" autocomplete="email" placeholder="contact@conciergerie.fr"></label>
+          <label for="a-dep">Départements suivis<input id="a-dep" inputmode="numeric" placeholder="75, 92, 93"></label>
+          <button class="btn" type="submit">M’alerter</button>
+        </div>
+        <label class="check" for="a-rgpd"><input id="a-rgpd" type="checkbox" required>J’accepte de recevoir par e-mail les nouveaux propriétaires disponibles dans ces départements. Un lien de désabonnement figure dans chaque alerte.</label>
+        <input type="text" name="site_web" id="a-hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="okmsg" id="a-ok" role="status" aria-live="polite" hidden></p>
+      </form>
       <dl class="terms rv">
         <div><dt>Qualifié</dt><dd>Chaque propriétaire a été appelé. Son projet est réel.</dd></div>
         <div><dt>Exclusif</dt><dd>Un contact n’est confié qu’à une seule conciergerie.</dd></div>

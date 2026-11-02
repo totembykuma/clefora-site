@@ -31,7 +31,7 @@
     var q=lc.value.replace(/\D/g,""),d=q.slice(0,2),list=leads.filter(function(l){return q.length<2||l.cp.indexOf(q)===0});
     var where=q.length<2?"en France":(q.length>=5?"au "+q:"dans le "+d+(DEP[d]?" · "+DEP[d]:""));
     cnt.textContent=list.length+" propriétaire"+(list.length>1?"s":"")+" disponible"+(list.length>1?"s":"")+" "+where;
-    if(!list.length){box.innerHTML='<li class="none">Aucun propriétaire disponible '+where+' pour le moment. <a href="#rendez-vous">Être prévenu du prochain</a>.</li>';return}
+    if(!list.length){box.innerHTML='<li class="none">Aucun propriétaire disponible '+where+' pour le moment. <a href="#alert-form">Être prévenu du prochain</a>.</li>';return}
     box.innerHTML=list.slice(0,SHOW).map(function(l){var o=OFFRES[l.f||DEFAUT];return '<li class="lead"><span class="cp">'+l.cp+badge(score(l))+'</span><span class="sec">'+(DEP[l.cp.slice(0,2)]||"")+'<small>Reçu le '+l.date+' · '+l.src+(o?' · '+(o.nom?o.nom+' · ':'')+o.prix:'')+'</small></span><span class="blur" aria-hidden="true">06 •• •• •• ••</span>'+buy(l,o)+'</li>'}).join("")+(list.length>SHOW?'<li class="none">Et '+(list.length-SHOW)+' autres. Affinez avec votre code postal.</li>':"");
   }
   function esc(v){return String(v||"").replace(/[^\w\s.\/'àâçéèêëîïôûùüÿ-]/gi,"")}
