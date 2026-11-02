@@ -38,7 +38,7 @@
       {k:"code_postal",ask:"Avec plaisir. Quel est le <em>code postal</em> de votre bien ?",text:/^\d{5}$/,err:"Un code postal à cinq chiffres, s’il vous plaît.",after:zone},
       {k:"surface",ask:"Quelle est sa taille ?",opts:["Studio","2 pièces","3 pièces","4 pièces et plus"]},
       {k:"formule",ask:"Quelle location envisagez-vous ?",opts:["Courte durée","Bail mobilité","Je ne sais pas encore"]},
-      {k:"metro",ask:"À combien de minutes à pied se trouve la station de métro la plus proche ?",opts:["5 minutes ou moins","Plus de 5 minutes","Je ne sais pas"]},
+      {k:"metro",skip:paris,ask:"À combien de minutes à pied se trouve la station de métro la plus proche ?",opts:["5 minutes ou moins","Plus de 5 minutes","Je ne sais pas"]},
       {k:"disponibilite",ask:"Quand le bien sera-t-il disponible ?",opts:["Dès maintenant","D’ici 3 mois","Plus tard"]}]},
     hotel:{profil:"Hôtel / conciergerie",key:KEY_CAPITAL,steps:[
       {k:"etablissement",ask:"Avec plaisir. Vous êtes…",opts:["Un hôtel","Une conciergerie","Une résidence"]},
@@ -52,14 +52,16 @@
   var CONTACT=[
     {k:"nom",ask:"Merci. À quel nom puis-je transmettre votre demande ?",text:/^.{2,80}$/,err:"Votre prénom et votre nom, s’il vous plaît."},
     {k:"telephone",ask:"Et le numéro où vous rappeler ?",text:/^(?:\+33\s?|0)[1-9](?:[\s.-]?\d{2}){4}$/,err:"Un numéro français, par exemple 06 12 34 56 78."},
-    {k:"rgpd",ask:"Dernière chose : acceptez-vous d’être recontacté et que votre demande soit transmise à un partenaire de Clefora, qui rémunère cette mise en relation ? <a href=\"confidentialite\">En savoir plus</a>.",opts:["J’accepte","Je refuse"]}];
+    {k:"rgpd",skip:paris,ask:"Dernière chose : acceptez-vous d’être recontacté et que votre demande soit transmise à un partenaire de Clefora, qui rémunère cette mise en relation ? <a href=\"confidentialite\">En savoir plus</a>.",opts:["J’accepte","Je refuse"]}];
 
+  /* Paris intramuros : pas de question métro ni de consentement (demande traitée en direct) */
+  function paris(){return lead.profil==="Propriétaire"&&/^75/.test(lead.code_postal||"")}
   function zone(v){var d=v.slice(0,2);
     if(d==="75"||d==="92"||d==="93"||d==="94"){lead.zone="Paris et proche banlieue";return "Parfait, c’est dans notre zone."}
     lead.zone="Hors zone";return "Ce secteur est hors de Paris : nous confierons votre bien à une conciergerie partenaire de votre région."}
   function start(name){flow=FLOWS[name];lead={profil:flow.profil};step=0;t0=t0||Date.now();ask()}
   function cur(){var s=flow.steps.concat(CONTACT);return s[step]}
-  function ask(){var s=cur();if(!s)return send();
+  function ask(){var s=cur();if(!s)return send();if(s.skip&&s.skip()){step++;return ask()}
     say(s.ask,function(){
       if(s.opts)chips(s.opts.map(function(o){return{t:o,go:function(){answer(o)}}}));
       else{wait=s;inp.placeholder=s.k==="telephone"?"06 12 34 56 78":s.k==="code_postal"?"75015":"Prénom et nom";inp.inputMode=s.k==="nom"?"text":"numeric";inp.focus()}})}
@@ -70,7 +72,7 @@
     var note=s.after&&s.after(v);if(note)say(note,ask);else ask()}
 
   function score(){if(lead.profil!=="Propriétaire")return"";var n=0;
-    if(lead.zone!=="Hors zone")n+=40;if(lead.metro==="5 minutes ou moins")n+=25;
+    if(lead.zone!=="Hors zone")n+=40;if(lead.metro==="5 minutes ou moins"||paris())n+=25;
     if(lead.formule&&lead.formule!=="Je ne sais pas encore")n+=15;
     n+=lead.disponibilite==="Dès maintenant"?20:lead.disponibilite==="D’ici 3 mois"?10:0;
     return n+"/100 ("+(n>=75?"chaud":n>=45?"tiède":"froid")+")"}
