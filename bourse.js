@@ -16,12 +16,23 @@
     if(l.f)return '<a class="link" href="#rendez-vous">N° '+l.id+'</a>';
     return '<span class="buys">'+Object.keys(OFFRES).map(function(k){return a(OFFRES[k])}).join("")+'</span>';
   }
+  /* Score Clefora (0-100), calculé dans le navigateur à partir des seules colonnes publiques :
+     secteur (50 pts : demande locative du département), fraîcheur (35 pts : ancienneté de la demande),
+     origine (15 pts : une demande faite sur le site est plus engagée qu'un clic sur une publicité). */
+  var ZONE={"75":50,"92":44,"94":38,"93":36,"06":36,"13":32,"69":32,"33":32,"74":32,"83":30,"34":30,"31":30,"44":30,"67":30,"59":28,"35":28,"64":28,"17":28,"78":28,"91":26,"95":26,"77":26,"20":26},
+      MOIS={"janv.":0,"févr.":1,"mars":2,"avr.":3,"mai":4,"juin":5,"juil.":6,"août":7,"sept.":8,"oct.":9,"nov.":10,"déc.":11};
+  function score(l){
+    var z=DEP[l.cp.slice(0,2)]?(ZONE[l.cp.slice(0,2)]||20):8,p=String(l.date).split(" "),t=new Date(+p[2],MOIS[p[1]],+p[0]),j=(Date.now()-t)/864e5,
+        f=isNaN(j)?10:j<=7?35:j<=30?30:j<=60?24:j<=120?16:j<=240?10:5,o=/site/i.test(l.src)?15:10;
+    return Math.min(100,z+f+o);
+  }
+  function badge(n){return '<span class="score" title="Score Clefora : secteur, fraîcheur et origine de la demande">Score <b>'+n+'</b><i class="s'+Math.round(n/20)+'"></i></span>'}
   function render(){
     var q=lc.value.replace(/\D/g,""),d=q.slice(0,2),list=leads.filter(function(l){return q.length<2||l.cp.indexOf(q)===0});
     var where=q.length<2?"en France":(q.length>=5?"au "+q:"dans le "+d+(DEP[d]?" · "+DEP[d]:""));
     cnt.textContent=list.length+" propriétaire"+(list.length>1?"s":"")+" disponible"+(list.length>1?"s":"")+" "+where;
     if(!list.length){box.innerHTML='<li class="none">Aucun propriétaire disponible '+where+' pour le moment. <a href="#alert-form">Être prévenu du prochain</a>.</li>';return}
-    box.innerHTML=list.slice(0,SHOW).map(function(l){var o=OFFRES[l.f||DEFAUT];return '<li class="lead"><span class="cp">'+l.cp+'</span><span class="sec">'+(DEP[l.cp.slice(0,2)]||"")+'<small>Reçu le '+l.date+' · '+l.src+(o?' · '+(o.nom?o.nom+' · ':'')+o.prix:'')+'</small></span><span class="blur" aria-hidden="true">06 •• •• •• ••</span>'+buy(l,o)+'</li>'}).join("")+(list.length>SHOW?'<li class="none">Et '+(list.length-SHOW)+' autres. Affinez avec votre code postal.</li>':"");
+    box.innerHTML=list.slice(0,SHOW).map(function(l){var o=OFFRES[l.f||DEFAUT];return '<li class="lead"><span class="cp">'+l.cp+badge(score(l))+'</span><span class="sec">'+(DEP[l.cp.slice(0,2)]||"")+'<small>Reçu le '+l.date+' · '+l.src+(o?' · '+(o.nom?o.nom+' · ':'')+o.prix:'')+'</small></span><span class="blur" aria-hidden="true">06 •• •• •• ••</span>'+buy(l,o)+'</li>'}).join("")+(list.length>SHOW?'<li class="none">Et '+(list.length-SHOW)+' autres. Affinez avec votre code postal.</li>':"");
   }
   function esc(v){return String(v||"").replace(/[^\w\s.\/'àâçéèêëîïôûùüÿ-]/gi,"")}
   function csv(t){return t.trim().split(/\r?\n/).slice(1).map(function(r){var c=r.split(",").map(function(v){return v.replace(/^"|"$/g,"").trim()});return {id:esc(c[0]),cp:esc(c[1]).replace(/\D/g,""),date:esc(c[2]),src:esc(c[3]),f:esc(c[4]).toUpperCase()}}).filter(function(l){return l.cp.length===5})}

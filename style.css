@@ -160,6 +160,11 @@ img,video{display:block;max-width:100%}
 .lead .blur{filter:blur(6px);user-select:none;color:var(--rose-soft)}
 .lead .link{color:var(--ivory)}
 .buys{display:flex;flex-direction:column;gap:12px}
+.lead .score{display:flex;align-items:center;gap:8px;margin-top:10px;font-family:var(--sans);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose-soft)}
+.lead .score b{font-family:var(--serif);font-size:18px;font-weight:500;letter-spacing:0;color:var(--ivory)}
+.lead .score i{position:relative;width:44px;height:1px;background:var(--line-light)}
+.lead .score i::after{content:"";position:absolute;left:0;top:-.5px;height:2px;background:var(--ivory);width:0}
+.lead .score i.s1::after{width:20%}.lead .score i.s2::after{width:40%}.lead .score i.s3::after{width:60%}.lead .score i.s4::after{width:80%}.lead .score i.s5::after{width:100%}
 .market .terms{max-width:none;margin-top:clamp(72px,9vw,110px)}
 .market .terms div{border-color:var(--line-light)}
 .market .terms dt{color:var(--rose-soft)}
