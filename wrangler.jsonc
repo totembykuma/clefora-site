@@ -2,7 +2,7 @@
   "name": "clefora-site",
   "compatibility_date": "2026-10-01",
   "preview_urls": false,
-  "workers_dev": true,
+  "workers_dev": false,
   "routes": [
     { "pattern": "clefora.fr", "custom_domain": true },
     { "pattern": "www.clefora.fr", "custom_domain": true }
