@@ -68,8 +68,8 @@ img,video{display:block;max-width:100%}
 .stage .in{position:relative;z-index:1;display:grid;gap:28px;justify-items:center;padding:0 24px}
 .stage h1{font-size:clamp(46px,7.4vw,104px);max-width:14ch}
 .stage .caps{color:var(--rose-soft)}
-.mark{font-family:var(--serif);font-weight:300;font-size:clamp(30px,4.4vw,58px);letter-spacing:.5em;margin-right:-.5em;display:flex}
-.mark span{opacity:0;filter:blur(10px);animation:letter 1.8s var(--slow) forwards;animation-delay:calc(.5s + var(--i) * .12s)}
+.mark{font-family:var(--serif);font-weight:300;font-size:clamp(30px,4.4vw,58px);letter-spacing:.5em;margin-right:-.5em;display:block;white-space:nowrap;line-height:1;-webkit-user-select:none;user-select:none}
+.mark span{display:inline-block;opacity:0;filter:blur(10px);animation:letter 1.8s var(--slow) forwards;animation-delay:calc(.5s + var(--i) * .12s)}
 .stage .late{opacity:0;animation:rise 1.6s var(--slow) forwards}
 .stage .d1{animation-delay:1.8s}.stage .d2{animation-delay:2.4s}
 .cue{position:absolute;bottom:calc(32px + env(safe-area-inset-bottom,0px));left:50%;z-index:1;width:1px;height:64px;background:var(--line-light);overflow:hidden}
