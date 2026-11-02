@@ -59,6 +59,11 @@ document.addEventListener("click",function(e){var a=e.target.closest("#rdv-next"
   /* Envoi : Web3Forms + pot de miel + délai minimum + limite locale */
   var ACCESS_KEY="75f0b8b4-63fd-4f63-b4e1-7ea272593b71",KEY_MFY="d46879e2-0d24-4c07-8ddc-430a89f83e86",t0=Date.now(),sending=false;
   var form=document.getElementById("lead-form");
+  /* Paris intramuros (75) : demande traitée par Made for You uniquement, pas de case d'accord de transmission */
+  var rg=document.getElementById("f-rgpd"),fcp=document.getElementById("f-cp");
+  function paris(){return !!fcp&&/^75/.test(fcp.value.replace(/\D/g,""))}
+  function syncRgpd(){if(!rg)return;var p=paris();rg.required=!p;rg.closest("label").style.display=p?"none":""}
+  if(rg&&fcp){fcp.addEventListener("input",syncRgpd);syncRgpd()}
   if(form)form.addEventListener("submit",function(e){
     e.preventDefault();
     var f=e.target,ok=document.getElementById("ok"),btn=f.querySelector("button[type=submit]");
@@ -71,13 +76,13 @@ document.addEventListener("click",function(e){var a=e.target.closest("#rdv-next"
     var pf=document.getElementById("f-prof"),pr=f.querySelector("[name=prof]:checked"),prof=pr?pr.value:pf.value||"";
     if(!prof){msg("Indiquez qui vous êtes.",1,f.querySelector("[name=prof]")||pf);return}
     if(cpv.length!==5){msg("Indiquez votre code postal.",1,document.getElementById("f-cp"));return}
-    if(!document.getElementById("f-rgpd").checked){msg("Cochez la case d’accord pour continuer.",1,document.getElementById("f-rgpd"));return}
+    if(!paris()&&!document.getElementById("f-rgpd").checked){msg("Cochez la case d’accord pour continuer.",1,document.getElementById("f-rgpd"));return}
     try{if(Date.now()-(+localStorage.getItem("clefora_last")||0)<60000){msg("Votre demande est déjà enregistrée. Choisissez votre créneau d’appel.");openCal();return}}catch(_){}
     sending=true;btn.disabled=true;
     fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({
       access_key:prof!=="Hôtel / conciergerie"?KEY_MFY:ACCESS_KEY,subject:"Clefora · nouvelle demande ("+prof+")",from_name:"Site Clefora",nom:name.slice(0,80),telephone:tel,profil:prof,code_postal:cpv,estimation:(document.getElementById("f-sim")||{}).value||undefined,botcheck:""})})
     .then(function(r){return r.json()}).then(function(d){
-      if(d.success){msg("Merci. Dernière étape : choisissez votre créneau d’appel.");openCal();f.reset();if(zo)zo.innerHTML="";try{localStorage.setItem("clefora_last",Date.now())}catch(_){}}
+      if(d.success){msg("Merci. Dernière étape : choisissez votre créneau d’appel.");openCal();f.reset();syncRgpd();if(zo)zo.innerHTML="";try{localStorage.setItem("clefora_last",Date.now())}catch(_){}}
       else msg("L’envoi n’a pas abouti. Merci de réessayer dans un instant.",1);
     }).catch(function(){msg("L’envoi n’a pas abouti. Merci de réessayer dans un instant.",1)})
     .finally(function(){sending=false;btn.disabled=false});
