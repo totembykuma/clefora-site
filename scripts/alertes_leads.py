@@ -6,6 +6,8 @@ Secrets GitHub (jamais dans le code public) :
   SMTP_USER        adresse Gmail d'envoi (ex. clefora.leads@gmail.com)
   SMTP_PASS        mot de passe d'application Gmail (16 caractères)
 Usage : python3 scripts/alertes_leads.py <commit avant> [--test]
+        python3 scripts/alertes_leads.py <commit avant> --export abonnes.txt sortie.json
+        (sans SMTP : écrit les e-mails à envoyer en JSON, pour un envoi via la boîte Gmail connectée à Claude)
 """
 import json, os, re, smtplib, subprocess, sys, html, time
 from email.message import EmailMessage
@@ -74,6 +76,20 @@ def main():
         nouveaux = list(neuf.values())[:2]
     print(f"{len(nouveaux)} nouveau(x) lead(s)")
     if not nouveaux:
+        return
+    if "--export" in sys.argv:
+        i = sys.argv.index("--export")
+        os.environ.setdefault("SMTP_USER", "william@capitalnettoyage.fr")
+        out = []
+        for mail, deps in abonnes(open(sys.argv[i + 1], encoding="utf-8").read()):
+            choix = [l for l in nouveaux if "*" in deps or dep(l["cp"]) in deps]
+            if choix:
+                page, _ = corps(choix, mail)
+                n = len(choix)
+                out.append({"to": mail, "subject": f"{n} nouveau{'x' if n > 1 else ''} propriétaire{'s' if n > 1 else ''} dans votre secteur · Clefora", "html": page,
+                            "text": "Nouveaux propriétaires disponibles :\n" + "\n".join(f"- {l['cp']} (reçu le {l['date']}), N° {l['id']}" for l in choix) + f"\n\nVoir la bourse : {SITE}\nSe désabonner : répondez « désabonnement »."})
+        json.dump(out, open(sys.argv[i + 2], "w", encoding="utf-8"), ensure_ascii=False)
+        print(f"{len(out)} e-mail(s) écrit(s) dans {sys.argv[i + 2]}")
         return
     if not os.environ.get("SMTP_USER") or not os.environ.get("SMTP_PASS"):
         print("SMTP_USER / SMTP_PASS absents : aucun envoi.")
