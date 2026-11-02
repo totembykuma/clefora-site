@@ -251,3 +251,20 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--line-light);padding-to
 .areas.hub ul{list-style:none;margin:0;padding:0;columns:2;gap:24px}
 .areas.hub .terms{grid-column:1/-1}
 @media (max-width:720px){.areas.hub{grid-template-columns:1fr}}
+/* Alertes acheteurs (bourse) : bandeau d'inscription sur fond bordeaux */
+.alert{margin-top:clamp(56px,7vw,88px);padding-top:40px;border-top:1px solid var(--line-light);gap:26px}
+.alert .ahead{display:grid;gap:12px}
+.alert .ahead p{font:400 clamp(24px,2.6vw,32px)/1.25 var(--serif);margin:0;max-width:30ch}
+.alert .arow{display:grid;grid-template-columns:1.3fr 1fr auto;gap:30px;align-items:end}
+.market .alert label{margin-top:0;max-width:none}
+.market .alert input{font-size:22px}
+.market .alert input::placeholder{color:rgba(242,238,234,.45);font-style:italic}
+.alert .btn{color:var(--ivory)}
+.alert .btn:hover{background:var(--ivory);color:var(--wine);border-color:var(--ivory)}
+.alert .check{display:flex;gap:14px;align-items:flex-start;text-transform:none;letter-spacing:0;font-weight:300;font-size:13px;line-height:1.6;color:var(--rose-soft);cursor:pointer;max-width:72ch}
+.alert .check input{flex:none;appearance:none;-webkit-appearance:none;width:18px;height:18px;padding:0;margin:2px 0 0;border:1px solid var(--ivory);cursor:pointer}
+.alert .check input:checked{box-shadow:inset 0 0 0 3px var(--wine),inset 0 0 0 12px var(--ivory)}
+.alert .check input:focus-visible{outline:1px solid var(--rose-soft);outline-offset:3px}
+.alert [aria-invalid]{border-color:#E8A0A8!important}
+.alert .okmsg{color:var(--ivory);margin:0}
+@media (max-width:860px){.alert .arow{grid-template-columns:1fr}.alert .btn{width:100%}}

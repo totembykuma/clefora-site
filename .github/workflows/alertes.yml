@@ -1,0 +1,25 @@
+name: Alertes acheteurs
+on:
+  push:
+    branches: [main]
+    paths: [bourse.js]
+  workflow_dispatch:
+    inputs:
+      test:
+        description: "Envoyer un e-mail de test à l'adresse d'envoi uniquement"
+        type: boolean
+        default: true
+permissions:
+  contents: read
+jobs:
+  alertes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 scripts/alertes_leads.py "${{ github.event.before || 'HEAD~1' }}" ${{ inputs.test && '--test' || '' }}
+        env:
+          ALERTES_ABONNES: ${{ secrets.ALERTES_ABONNES }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
