@@ -9,9 +9,10 @@
     /* Onglet « Public » du Google Sheet publié en CSV (colonnes id, cp, date, source, formule). Vide : la liste ci-dessus est utilisée. */
     SHEET_CSV="";
   var lc=document.getElementById("lead-cp"),box=document.getElementById("leads"),cnt=document.getElementById("lead-count");
+  /* Le bouton passe par /acheter/N : le site vérifie que le lead est libre, le réserve, puis ouvre le paiement Stripe. */
   /* Formule connue : un bouton. Formule inconnue : un bouton par formule vendue, l'acheteur choisit. */
   function buy(l,o){
-    function a(x){return '<a class="link" href="'+x.url+'?client_reference_id=lead-'+l.id+'">Acheter · '+(o?'N° '+l.id:x.nom+' · '+x.prix)+'</a>'}
+    function a(x){return '<a class="link" href="/acheter/'+l.id+'">Acheter · '+(o?'N° '+l.id:x.nom+' · '+x.prix)+'</a>'}
     if(o)return a(o);
     if(l.f)return '<a class="link" href="#rendez-vous">N° '+l.id+'</a>';
     return '<span class="buys">'+Object.keys(OFFRES).map(function(k){return a(OFFRES[k])}).join("")+'</span>';
@@ -28,7 +29,7 @@
   }
   function badge(n){return '<span class="score" title="Score Clefora : secteur, fraîcheur et origine de la demande">Score <b>'+n+'</b><i class="s'+Math.round(n/20)+'"></i></span>'}
   function render(){
-    var q=lc.value.replace(/\D/g,""),d=q.slice(0,2),list=leads.filter(function(l){return q.length<2||l.cp.indexOf(q)===0});
+    var q=lc.value.replace(/\D/g,""),d=q.slice(0,2),list=leads.filter(function(l){return (q.length<2||l.cp.indexOf(q)===0)&&!PRIS[l.id]});
     var where=q.length<2?"en France":(q.length>=5?"au "+q:"dans le "+d+(DEP[d]?" · "+DEP[d]:""));
     cnt.textContent=list.length+" propriétaire"+(list.length>1?"s":"")+" disponible"+(list.length>1?"s":"")+" "+where;
     if(!list.length){box.innerHTML='<li class="none">Aucun propriétaire disponible '+where+' pour le moment. <a href="#alert-form">Être prévenu du prochain</a>.</li>';return}
@@ -36,6 +37,10 @@
   }
   function esc(v){return String(v||"").replace(/[^\w\s.\/'àâçéèêëîïôûùüÿ-]/gi,"")}
   function csv(t){return t.trim().split(/\r?\n/).slice(1).map(function(r){var c=r.split(",").map(function(v){return v.replace(/^"|"$/g,"").trim()});return {id:esc(c[0]),cp:esc(c[1]).replace(/\D/g,""),date:esc(c[2]),src:esc(c[3]),f:esc(c[4]).toUpperCase()}}).filter(function(l){return l.cp.length===5})}
+  /* Leads vendus ou en cours de paiement : masqués (liste des seuls numéros, servie par le site). */
+  var PRIS={},v=(location.search.match(/[?&]vendu=(\d+)/)||[])[1];
   lc.addEventListener("input",render);render();
+  if(v)cnt.insertAdjacentHTML("beforebegin",'<p class="count caps">Le lead N° '+v+' vient d’être vendu ou est en cours de paiement.</p>');
+  if(window.fetch)fetch("/api/vendus").then(function(r){return r.ok?r.json():[]}).then(function(a){a.forEach(function(i){PRIS[i]=1});if(a.length)render()}).catch(function(){});
   if(SHEET_CSV&&window.fetch)fetch(SHEET_CSV).then(function(r){return r.ok?r.text():Promise.reject()}).then(function(t){var l=csv(t);if(l.length){leads=l.reverse();render()}}).catch(function(){});
 })();
