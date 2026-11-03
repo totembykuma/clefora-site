@@ -4,7 +4,7 @@
   "use strict";
   var KEY_CAPITAL="75f0b8b4-63fd-4f63-b4e1-7ea272593b71",KEY_MFY="d46879e2-0d24-4c07-8ddc-430a89f83e86";
   var BOOK="https://calendar.google.com/calendar/appointments/schedules/AcZssZ19p-XRw6DHfBLPKKoHdhRiLhGFMdUIKILHLs0DaoYWiAEFn2NY4NinHK8IGGSyq4xHcgd0jCD3";
-  var css=document.createElement("link");css.rel="stylesheet";css.href="assistant.css";document.head.appendChild(css);
+  var css=document.createElement("link");css.rel="stylesheet";css.href="/assistant.css";document.head.appendChild(css);
 
   var KEY_ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="12" cy="12" r="10.5"/><circle cx="12" cy="10" r="2.4"/><path d="M11 12.2 10.2 17h3.6L13 12.2"/></svg>';
   var btn=document.createElement("button");btn.className="cg-open";btn.type="button";btn.setAttribute("aria-haspopup","dialog");
@@ -52,7 +52,7 @@
   var CONTACT=[
     {k:"nom",ask:"Merci. À quel nom puis-je transmettre votre demande ?",text:/^.{2,80}$/,err:"Votre prénom et votre nom, s’il vous plaît."},
     {k:"telephone",ask:"Et le numéro où vous rappeler ?",text:/^(?:\+33\s?|0)[1-9](?:[\s.-]?\d{2}){4}$/,err:"Un numéro français, par exemple 06 12 34 56 78."},
-    {k:"rgpd",skip:paris,ask:"Dernière chose : acceptez-vous d’être recontacté et que votre demande soit transmise à un partenaire de Clefora, qui rémunère cette mise en relation ? <a href=\"confidentialite\">En savoir plus</a>.",opts:["J’accepte","Je refuse"]}];
+    {k:"rgpd",skip:paris,ask:"Dernière chose : acceptez-vous d’être recontacté et que votre demande soit transmise à un partenaire de Clefora, qui rémunère cette mise en relation ? <a href=\"/confidentialite\">En savoir plus</a>.",opts:["J’accepte","Je refuse"]}];
 
   /* Paris intramuros : pas de question métro ni de consentement (demande traitée en direct) */
   function paris(){return lead.profil==="Propriétaire"&&/^75/.test(lead.code_postal||"")}
