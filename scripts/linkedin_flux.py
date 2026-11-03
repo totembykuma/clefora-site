@@ -13,10 +13,11 @@ now = datetime.now(paris)
 items = []
 for p in sorted(data["posts"], key=lambda p: p["date"], reverse=True):
     quand = datetime.fromisoformat(f"{p['date']}T{data['heure']}").replace(tzinfo=paris)
-    if quand > now:
+    if quand > now or p["date"] < data.get("debut", ""):  # rien avant la date de reprise
         continue
-    items.append(f"<item><title>{escape(p['texte'].split(chr(10), 1)[0])}</title><link>{BASE}/</link>"
-                 f"<guid isPermaLink=\"false\">clefora-linkedin-{p['date']}</guid><pubDate>{format_datetime(quand)}</pubDate>"
+    items.append(f"<item><title>{escape(p['texte'].split(chr(10), 1)[0])}</title><link>{BASE}{p.get('lien', '/')}</link>"
+                 + (f"<enclosure url=\"{BASE}/linkedin/visuels/{p['date']}.jpg\" type=\"image/jpeg\" length=\"0\"/>" if p.get("visuel") else "")
+                 + f"<guid isPermaLink=\"false\">clefora-linkedin-{p['date']}</guid><pubDate>{format_datetime(quand)}</pubDate>"
                  f"<description>{escape(p['texte'])}</description></item>")
     if len(items) == 10:
         break
