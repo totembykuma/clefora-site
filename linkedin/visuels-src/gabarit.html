@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:C;src:url(../../fonts/cormorant-normal.woff2)}
+@font-face{font-family:C;font-style:italic;src:url(../../fonts/cormorant-italic.woff2)}
+@font-face{font-family:J;src:url(../../fonts/jost-normal.woff2)}
+*{margin:0;box-sizing:border-box}
+body{width:1080px;height:1350px;overflow:hidden;background:#4A1E26;font-family:J}
+.ph{position:absolute;inset:0;background:center/cover no-repeat;filter:saturate(.85)}
+.voile{position:absolute;inset:0;background:linear-gradient(180deg,rgba(43,20,25,.35) 0%,rgba(43,20,25,0) 28%,rgba(74,30,38,.55) 55%,rgba(58,22,30,.96) 100%)}
+.cadre{position:absolute;inset:40px;border:1px solid rgba(242,238,234,.35)}
+.haut{position:absolute;top:84px;left:0;right:0;text-align:center;color:#F2EEEA;letter-spacing:.55em;font-size:22px;padding-left:.55em}
+.txt{position:absolute;left:100px;right:100px;bottom:250px;color:#F2EEEA}
+.sur{font-size:20px;letter-spacing:.4em;text-transform:uppercase;color:#D9C3C6;margin-bottom:34px}
+h1{font-family:C;font-weight:400;font-size:96px;line-height:1.02;letter-spacing:-.01em}
+h1 em{display:block;color:#D9C3C6;font-weight:300}
+.trait{width:90px;height:1px;background:#D9C3C6;margin:44px 0 0}
+.bas{position:absolute;left:100px;right:100px;bottom:100px;display:flex;justify-content:space-between;align-items:flex-end;color:#F2EEEA;font-size:19px;letter-spacing:.28em;text-transform:uppercase}
+.bas b{font-weight:400;opacity:.75}
+.cta{font-family:C;font-style:italic;text-transform:none;letter-spacing:0;font-size:34px}
+</style></head><body>
+<div class="ph" style="background-image:url(../../media/{photo})"></div><div class="voile"></div><div class="cadre"></div>
+<div class="haut">CLEFORA</div>
+<div class="txt"><div class="sur">{sur}</div><h1>{l1}<em>{l2}</em></h1><div class="trait"></div></div>
+<div class="bas"><b>Made for You · Capital Nettoyage</b><span class="cta">{cta}</span></div>
+</body></html>
