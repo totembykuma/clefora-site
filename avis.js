@@ -4,7 +4,7 @@
    Exemple : {nom:"Jeanne D.", note:5, date:"novembre 2026", texte:"…"} */
 var AVIS = [];
 /* Lien « Laisser un avis » de la fiche Google Business Profile (Accueil > Demander des avis > copier le lien) */
-var LIEN_AVIS_GOOGLE = "";
+var LIEN_AVIS_GOOGLE = "https://g.page/r/CZdXzfkXbBsnECE/review";
 (function(){
   var s=document.getElementById("avis");
   if(!s||!AVIS.length)return;
