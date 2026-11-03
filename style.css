@@ -284,3 +284,27 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--line-light);padding-to
 .avis blockquote{font-family:var(--serif);font-size:22px;line-height:1.4;margin:18px 0}
 .avis cite{font:500 10.5px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;font-style:normal;color:var(--ink-soft)}
 .avis[hidden],.avis-lien[hidden]{display:none}
+/* Blog */
+.post-h1{max-width:20ch;font-size:clamp(38px,5vw,72px)}
+.page-hero .caps a{color:inherit;text-decoration:none}
+.prose{max-width:720px;color:var(--ink)}
+.prose .chapo{font-family:var(--serif);font-size:clamp(24px,2.4vw,30px);line-height:1.4;margin:0 0 48px}
+.prose h2{font-size:clamp(28px,2.8vw,38px);margin:56px 0 18px;border-top:1px solid var(--line);padding-top:28px}
+.prose p,.prose li{line-height:1.75}
+.prose ul,.prose ol{padding-left:1.2em;display:grid;gap:10px}
+.prose a{color:var(--rose);text-underline-offset:4px;text-decoration-thickness:1px}
+.prose strong{font-weight:500}
+.prose .terms{margin:24px 0 0}
+.prose .sign{margin-top:56px;font-size:14px;color:var(--ink-soft);font-style:italic}
+.post-cta{text-align:center;display:grid;gap:18px;justify-items:center;padding-bottom:clamp(72px,10vw,120px)}
+.post-cta p:first-of-type{font-family:var(--serif);font-size:clamp(26px,3vw,38px);max-width:26ch;margin:0}
+.post-cta p:last-child{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:0}
+.post-more{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.posts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(32px,5vw,64px)}
+.posts a{display:grid;gap:14px;color:inherit;text-decoration:none;border-top:1px solid var(--ink);padding-top:24px}
+.posts img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.posts .caps{color:var(--rose)}
+.posts h2{font-size:clamp(26px,2.4vw,34px);margin:0}
+.posts p{color:var(--ink-soft);margin:0}
+.posts a:hover h2{color:var(--rose)}
+@media (max-width:720px){.posts{grid-template-columns:1fr}}
