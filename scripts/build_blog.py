@@ -42,7 +42,7 @@ ARTICLES = [
 
 ("bail-mobilite-paris",
  "Bail mobilité à Paris : le guide pour les propriétaires",
- "Bail mobilité à Paris : durée de 1 à 10 mois, locataires éligibles, pas de dépôt de garantie, encadrement des loyers. Tout ce qu’un propriétaire doit savoir.",
+ "Bail mobilité à Paris : durée de 1 à 10 mois, locataires éligibles, pas de dépôt de garantie, préavis. Tout ce qu’un propriétaire doit savoir.",
  "blog-chambre-noire", "2026-11-03",
  "Créé par la loi ELAN en 2018, le bail mobilité permet de louer un meublé pour quelques mois à des professionnels et étudiants de passage. À Paris, c’est souvent la meilleure façon de rentabiliser un appartement sans les contraintes de la location touristique.",
  """
@@ -53,7 +53,6 @@ ARTICLES = [
 <li><strong>Locataires éligibles</strong> : personnes en formation professionnelle, études supérieures, stage, apprentissage, service civique, mutation ou mission temporaire. La situation doit figurer dans le bail.</li>
 <li><strong>Dépôt de garantie</strong> : interdit. Le locataire peut en revanche bénéficier de la garantie Visale.</li>
 <li><strong>Préavis</strong> : le locataire peut partir à tout moment avec un mois de préavis. Le propriétaire, lui, ne peut pas résilier avant le terme.</li>
-<li><strong>Loyer</strong> : à Paris, l’encadrement des loyers s’applique au bail mobilité comme aux autres baux d’habitation.</li>
 </ul>
 <p>Source officielle et modèle de contrat : <a href="https://www.anil.org/bail-mobilite/" rel="noopener" target="_blank">ANIL, le bail mobilité</a>.</p>
 
@@ -62,7 +61,6 @@ ARTICLES = [
 
 <h2>Les points de vigilance</h2>
 <ul>
-<li>Respecter le loyer de référence majoré de votre quartier.</li>
 <li>Soigner l’état des lieux, puisqu’il n’y a pas de dépôt de garantie.</li>
 <li>Prévoir la rotation : changement de locataire, ménage, linge et remise en état entre deux baux.</li>
 </ul>
@@ -118,13 +116,13 @@ ARTICLES = [
 <p><strong>Idéal si</strong> vous vous absentez régulièrement (week-ends, vacances, déplacements) et voulez rentabiliser ces périodes.</p>
 
 <h2>Le bail mobilité, pour un logement disponible plusieurs mois</h2>
-<p>Bail d’habitation meublé de 1 à 10 mois, il s’adresse aux professionnels et étudiants en mission. Il n’est pas soumis au plafond des 90 nuits et n’exige pas de changement d’usage : il convient donc aussi à une résidence secondaire ou à un appartement vacant. Le loyer suit l’encadrement parisien. Détails dans notre <a href="/blog/bail-mobilite-paris">guide du bail mobilité</a>.</p>
+<p>Bail d’habitation meublé de 1 à 10 mois, il s’adresse aux professionnels et étudiants en mission. Il n’est pas soumis au plafond des 90 nuits et n’exige pas de changement d’usage : il convient donc aussi à une résidence secondaire ou à un appartement vacant. Détails dans notre <a href="/blog/bail-mobilite-paris">guide du bail mobilité</a>.</p>
 <p><strong>Idéal si</strong> l’appartement n’est pas votre résidence principale, ou si vous voulez des revenus réguliers avec moins de rotations.</p>
 
 <h2>En résumé</h2>
 <dl class="terms">
 <div><dt>Courte durée</dt><dd>Résidence principale, 90 nuits par an maximum, revenus par nuit plus élevés, gestion à chaque séjour.</dd></div>
-<div><dt>Bail mobilité</dt><dd>Tout meublé, de 1 à 10 mois, loyer encadré, revenus plus réguliers, peu de rotations.</dd></div>
+<div><dt>Bail mobilité</dt><dd>Tout meublé, de 1 à 10 mois, revenus plus réguliers, peu de rotations.</dd></div>
 </dl>
 
 <h2>Combiner les deux</h2>
