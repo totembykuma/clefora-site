@@ -17,7 +17,7 @@ ARTICLES = [
 ("regle-120-jours-paris",
  "Règle des 120 jours à Paris : ce qui change avec les 90 jours",
  "Louer sa résidence principale sur Airbnb à Paris : la limite est passée de 120 à 90 nuits par an. Numéro d’enregistrement, résidence secondaire, alternatives.",
- "blog-salon-haussmann", "2026-11-03",
+ "arc-de-triomphe", "2026-11-03",
  "Vous avez entendu parler de la « règle des 120 jours » ? À Paris, elle ne s’applique plus telle quelle : depuis le 1<sup>er</sup> janvier 2025, la Ville limite la location de courte durée d’une résidence principale à 90 nuits par an.",
  """
 <h2>D’où vient la règle des 120 jours</h2>
