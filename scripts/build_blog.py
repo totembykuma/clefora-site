@@ -17,7 +17,7 @@ ARTICLES = [
 ("regle-120-jours-paris",
  "Règle des 120 jours à Paris : ce qui change avec les 90 jours",
  "Louer sa résidence principale sur Airbnb à Paris : la limite est passée de 120 à 90 nuits par an. Numéro d’enregistrement, résidence secondaire, alternatives.",
- "salon-moulures", "2026-11-03",
+ "blog-salon-haussmann", "2026-11-03",
  "Vous avez entendu parler de la « règle des 120 jours » ? À Paris, elle ne s’applique plus telle quelle : depuis le 1<sup>er</sup> janvier 2025, la Ville limite la location de courte durée d’une résidence principale à 90 nuits par an.",
  """
 <h2>D’où vient la règle des 120 jours</h2>
@@ -43,7 +43,7 @@ ARTICLES = [
 ("bail-mobilite-paris",
  "Bail mobilité à Paris : le guide pour les propriétaires",
  "Bail mobilité à Paris : durée de 1 à 10 mois, locataires éligibles, pas de dépôt de garantie, encadrement des loyers. Tout ce qu’un propriétaire doit savoir.",
- "chambre-claire", "2026-11-03",
+ "blog-chambre-noire", "2026-11-03",
  "Créé par la loi ELAN en 2018, le bail mobilité permet de louer un meublé pour quelques mois à des professionnels et étudiants de passage. À Paris, c’est souvent la meilleure façon de rentabiliser un appartement sans les contraintes de la location touristique.",
  """
 <h2>Les règles essentielles</h2>
@@ -72,7 +72,7 @@ ARTICLES = [
 ("combien-prend-une-conciergerie-airbnb",
  "Combien prend une conciergerie Airbnb à Paris ?",
  "Commission d’une conciergerie Airbnb : sur quoi elle est calculée, quels frais s’ajoutent, les questions à poser avant de signer. Avec les honoraires Clefora.",
- "salon-portrait", "2026-11-03",
+ "blog-studio-balcon", "2026-11-03",
  "Une conciergerie se rémunère presque toujours par une commission sur vos revenus locatifs. Mais deux offres au même pourcentage peuvent vous laisser des revenus très différents : tout dépend de la base de calcul et des frais qui s’ajoutent.",
  """
 <h2>Sur quoi la commission est calculée</h2>
@@ -110,7 +110,7 @@ ARTICLES = [
 ("courte-duree-ou-bail-mobilite",
  "Courte durée ou bail mobilité : que choisir pour son appartement à Paris ?",
  "Airbnb ou bail mobilité à Paris : réglementation, revenus, disponibilité du logement, gestion. Comparatif pour choisir la bonne formule, ou combiner les deux.",
- "sejour", "2026-11-03",
+ "blog-salon-cheminee", "2026-11-03",
  "Vous voulez louer votre appartement parisien meublé, mais vous hésitez entre les voyageurs de passage et les locataires de quelques mois. Les deux formules répondent à des situations différentes, et peuvent se combiner.",
  """
 <h2>La courte durée, pour une résidence principale</h2>
@@ -199,12 +199,12 @@ def hub():
     graph = [{"@type": "Blog", "name": "Conseils Clefora", "url": BASE + "blog/", "publisher": {"@id": BASE + "#org"},
               "blogPost": [{"@type": "BlogPosting", "headline": t, "url": f"{BASE}blog/{s}"} for s, t, *_ in ARTICLES]},
              crumbs(("Accueil", BASE), ("Conseils", BASE + "blog/"))]
-    html = (hero("salon-arrondi", "Conseils · Propriétaires", "Louer à Paris, <em>en connaissance de cause</em>.")
+    html = (hero("salon-canape", "Conseils · Propriétaires", "Louer à Paris, <em>en connaissance de cause</em>.")
       + '  <section class="s wrap manifest">\n    <p class="big rv">Réglementation, bail mobilité, honoraires : <em>les réponses claires aux questions que se posent les propriétaires.</em></p>\n'
       + '    <p class="rv lede">Clefora fait partie de Made for You et Capital Nettoyage.</p>\n  </section>\n'
       + f'  <section class="wrap" style="padding-bottom:clamp(96px,14vw,180px)"><ul class="posts">{cards}</ul></section>\n'
       + CTA + "\n  " + absolute(form) + "\n</main>\n")
-    return head("blog/", title, desc, "salon-arrondi", graph) + html + absolute(footer)
+    return head("blog/", title, desc, "salon-canape", graph) + html + absolute(footer)
 
 (ROOT / "blog").mkdir(exist_ok=True)
 (ROOT / "blog" / "index.html").write_text(hub(), encoding="utf-8")
