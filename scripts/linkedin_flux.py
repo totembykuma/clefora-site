@@ -15,9 +15,11 @@ for p in sorted(data["posts"], key=lambda p: p["date"], reverse=True):
     quand = datetime.fromisoformat(f"{p['date']}T{data['heure']}").replace(tzinfo=paris)
     if quand > now or p["date"] < data.get("debut", ""):  # rien avant la date de reprise
         continue
+    img = f"{BASE}/linkedin/visuels/{p['date']}.jpg"
     items.append(f"<item><title>{escape(p['texte'].split(chr(10), 1)[0])}</title><link>{BASE}{p.get('lien', '/')}</link>"
-                 + (f"<enclosure url=\"{BASE}/linkedin/visuels/{p['date']}.jpg\" type=\"image/jpeg\" length=\"0\"/>" if p.get("visuel") else "")
-                 + f"<guid isPermaLink=\"false\">clefora-linkedin-{p['date']}</guid><pubDate>{format_datetime(quand)}</pubDate>"
+                 + (f"<enclosure url=\"{img}\" type=\"image/jpeg\" length=\"0\"/>" if p.get("visuel") else "")
+                 # guid = URL du visuel : Zapier la passe telle quelle dans le champ Image (et elle reste unique par jour)
+                 + f"<guid isPermaLink=\"false\">{img if p.get('visuel') else 'clefora-linkedin-' + p['date']}</guid><pubDate>{format_datetime(quand)}</pubDate>"
                  f"<description>{escape(p['texte'])}</description></item>")
     if len(items) == 10:
         break
