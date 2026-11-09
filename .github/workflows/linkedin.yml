@@ -1,7 +1,9 @@
 name: Posts LinkedIn
 on:
   schedule:
-    - cron: "5 8,9 * * *"   # 10h05 à Paris (été comme hiver, le script ne publie qu'après 10h)
+    # GitHub retarde souvent les crons de plusieurs heures (runs vus vers 15-16h UTC) :
+    # on tente toutes les 30 min de 9h à 18h Paris ; le script ne publie qu'après 10h et ne commite que si le flux change.
+    - cron: "17,47 7-17 * * *"
   workflow_dispatch:
 permissions:
   contents: write
