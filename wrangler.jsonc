@@ -1,5 +1,6 @@
 {
   "name": "clefora-site",
+  "main": "worker.js",
   "compatibility_date": "2026-10-01",
   "preview_urls": false,
   "workers_dev": false,
@@ -7,5 +8,5 @@
     { "pattern": "clefora.fr", "custom_domain": true },
     { "pattern": "www.clefora.fr", "custom_domain": true }
   ],
-  "assets": { "directory": "./", "not_found_handling": "404-page" }
+  "assets": { "directory": "./", "binding": "ASSETS", "not_found_handling": "404-page", "run_worker_first": ["/linkedin/flux.xml"] }
 }

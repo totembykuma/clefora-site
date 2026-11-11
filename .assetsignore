@@ -6,3 +6,4 @@ node_modules
 scripts
 .github
 linkedin/posts.json
+worker.js
