@@ -2,7 +2,7 @@
    Clefora : lin, bordeaux, Cormorant, la serrure du logo.
    Hugo : affiches noir et blanc, bandeau blanc à l'adresse, cadres peints, regards. */
 .gal{--k:#111;--tint:var(--paper)}
-body{transition:background-color .9s var(--slow)}
+body{transition:background-color .8s ease}
 .gal img{height:auto}
 .gal em{font-family:var(--serif);font-style:italic;font-weight:400}
 .kicker{display:block;font:500 10.5px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--rose)}
@@ -12,11 +12,11 @@ body{transition:background-color .9s var(--slow)}
 .aff span{display:block;margin-top:10px;font:400 10.5px/1.4 var(--sans);letter-spacing:.06em;color:var(--k)}
 /* 1. La serrure */
 .peek{height:260vh;position:relative}
-.peek-stage{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;justify-items:center;align-items:start}
+.peek-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;justify-items:center;align-items:start}
 .peek-art{--m:34;margin-top:calc(9vh + 40px);height:min(72vh,128vw);aspect-ratio:5/7;
   -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 140'%3E%3Ccircle cx='50' cy='52' r='24'/%3E%3Cpath d='M38 66h24l9 52H29z'/%3E%3C/svg%3E") 50% 26%/calc(var(--m)*1%) auto no-repeat;
   mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 140'%3E%3Ccircle cx='50' cy='52' r='24'/%3E%3Cpath d='M38 66h24l9 52H29z'/%3E%3C/svg%3E") 50% 26%/calc(var(--m)*1%) auto no-repeat}
-.peek-art img{width:100%;height:100%;object-fit:cover;transform:scale(calc(1 + var(--z,1.4) - 1));transform-origin:50% 13%}
+.peek-art img{width:100%;height:100%;object-fit:cover;transform:scale(calc(1 + var(--z,1.4) - 1));transform-origin:50% 13%;will-change:transform}
 .peek-hint{position:absolute;bottom:7vh;left:0;right:0;text-align:center;opacity:var(--h,1)}
 .peek-hint em{display:block;font-size:clamp(30px,3.4vw,48px);color:var(--wine);margin:16px 0 18px}
 .cue{font:500 10px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft)}
@@ -102,7 +102,6 @@ blockquote{margin:22px 0 28px;font:italic 400 clamp(32px,3.6vw,52px)/1.1 var(--s
 @media (max-width:860px){.det-grid{grid-template-columns:1fr 1fr;grid-auto-rows:42vw}}
 
 /* Salle de musée : murs bordeaux profond, chaque œuvre seule sous son projecteur */
-html{scroll-snap-type:y proximity}
 .room{position:relative;min-height:100vh;padding:14vh 7vw 10vh;scroll-snap-align:center;isolation:isolate}
 .room::before{content:"";position:absolute;inset:0;z-index:-1;background:
   radial-gradient(ellipse 34% 62% at 50% 46%,rgba(255,236,214,.20),rgba(255,236,214,.06) 55%,rgba(0,0,0,0) 75%),
@@ -115,3 +114,8 @@ html{scroll-snap-type:y proximity}
 .det-grid .d img{filter:brightness(.92)}
 .gal .d:hover img{filter:none}
 @media (max-width:860px){.room{min-height:88vh;display:grid;align-content:center}.room .cmp{height:auto}.room::before{background:radial-gradient(ellipse 70% 50% at 50% 45%,rgba(255,236,214,.18),rgba(0,0,0,0) 75%)}}
+
+.peek-art{contain:paint}
+.room{content-visibility:auto;contain-intrinsic-size:auto 100vh}
+.lens{will-change:transform;left:0;top:0}
+@media (hover:none){.lens{display:none}.cmp{cursor:auto}}
