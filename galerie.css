@@ -124,3 +124,9 @@ blockquote{margin:22px 0 28px;font:italic 400 clamp(32px,3.6vw,52px)/1.1 var(--s
 .cmp,.gal [data-i]{cursor:auto}
 .gal [data-i]:hover img,.d:hover img{transform:none}
 .det-grid .d img,.gal .d:hover img{filter:none;transition:none}
+
+/* Signature manuscrite de l'artiste à la place du nom */
+.peek-title{background:none;padding:2.4vh 0 0}
+.peek-title h1{line-height:0}
+.peek-title .sig{display:block;width:min(42%,220px);height:auto;margin:0 auto}
+.peek-title{bottom:auto;top:calc(9vh + 40px + min(72vh,128vw) + 1.5vh)}
