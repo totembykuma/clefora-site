@@ -100,3 +100,18 @@ blockquote{margin:22px 0 28px;font:italic 400 clamp(32px,3.6vw,52px)/1.1 var(--s
 .det-grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:24vw}
 .det-grid .d{grid-column:auto!important;grid-row:auto!important}
 @media (max-width:860px){.det-grid{grid-template-columns:1fr 1fr;grid-auto-rows:42vw}}
+
+/* Salle de musée : murs bordeaux profond, chaque œuvre seule sous son projecteur */
+html{scroll-snap-type:y proximity}
+.room{position:relative;min-height:100vh;padding:14vh 7vw 10vh;scroll-snap-align:center;isolation:isolate}
+.room::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(ellipse 34% 62% at 50% 46%,rgba(255,236,214,.20),rgba(255,236,214,.06) 55%,rgba(0,0,0,0) 75%),
+  linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0) 22%,rgba(0,0,0,0) 80%,rgba(0,0,0,.25));pointer-events:none}
+.room::after{content:"";position:absolute;left:0;right:0;bottom:0;height:9vh;z-index:-1;background:linear-gradient(180deg,#160709,#0f0406);border-top:1px solid rgba(255,255,255,.05)}
+.room .cmp{height:72vh;box-shadow:0 1px 0 rgba(255,255,255,.06),18px 30px 40px -12px rgba(0,0,0,.65),0 60px 90px -40px rgba(0,0,0,.8)}
+.room .cmp::after{display:none}
+.room+.room{border-top:0}
+.details{background:#160709}
+.det-grid .d img{filter:brightness(.92)}
+.gal .d:hover img{filter:none}
+@media (max-width:860px){.room{min-height:88vh;display:grid;align-content:center}.room .cmp{height:auto}.room::before{background:radial-gradient(ellipse 70% 50% at 50% 45%,rgba(255,236,214,.18),rgba(0,0,0,0) 75%)}}
