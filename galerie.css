@@ -88,3 +88,15 @@ blockquote{margin:22px 0 28px;font:italic 400 clamp(32px,3.6vw,52px)/1.1 var(--s
   .buy{padding:70px 16px 90px}.poster{padding:26px}.poster-in{padding:50px 20px}
 }
 @media (prefers-reduced-motion:reduce){.peek{height:auto}.peek-stage{position:relative}.peek-art{--m:400}.peek-hint{display:none}.peek-title{opacity:1;transform:translate(-50%,0)}}
+
+/* Version « œuvres seules » */
+.room{grid-template-columns:1fr;justify-items:center;min-height:100vh;padding:10vh 7vw}
+.room .cmp{max-width:none;height:80vh;aspect-ratio:5/7}
+.room .cmp img.col{height:100%;width:auto}
+.slide{width:min(300px,60vw);margin-top:28px}
+.cue{display:block;font-size:0}
+.details{padding:10vh 4vw}.det-grid{margin-top:0}
+@media (max-width:860px){.room{min-height:0;padding:50px 16px}.room .cmp{height:auto;width:100%}.room .cmp img.col{width:100%;height:auto}}
+.det-grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:24vw}
+.det-grid .d{grid-column:auto!important;grid-row:auto!important}
+@media (max-width:860px){.det-grid{grid-template-columns:1fr 1fr;grid-auto-rows:42vw}}
