@@ -130,3 +130,7 @@ blockquote{margin:22px 0 28px;font:italic 400 clamp(32px,3.6vw,52px)/1.1 var(--s
 .peek-title h1{line-height:0}
 .peek-title .sig{display:block;width:min(42%,220px);height:auto;margin:0 auto}
 .peek-title{bottom:auto;top:calc(9vh + 40px + min(72vh,128vw) + 1.5vh)}
+/* Toutes les œuvres sur le même fond lin que l'entrée */
+.room::before,.room::after{display:none}
+.room .cmp{box-shadow:0 2px 4px rgba(0,0,0,.08),0 30px 60px -25px rgba(30,20,20,.45)}
+.details{background:var(--paper)}
