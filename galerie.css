@@ -134,3 +134,12 @@ blockquote{margin:22px 0 28px;font:italic 400 clamp(32px,3.6vw,52px)/1.1 var(--s
 .room::before,.room::after{display:none}
 .room .cmp{box-shadow:0 2px 4px rgba(0,0,0,.08),0 30px 60px -25px rgba(30,20,20,.45)}
 .details{background:var(--paper)}
+
+/* Signature sous chaque œuvre */
+.room-art{display:flex;flex-direction:column;align-items:center}
+.sig-w{display:block;width:min(150px,32vw);height:auto;margin-top:28px}
+.room .cmp{height:68vh}
+@media (max-width:860px){.room .cmp{height:auto}.sig-w{margin-top:20px}}
+.room{padding:calc(10vh + 30px) 7vw 8vh}
+.room .cmp{height:64vh}
+@media (max-width:860px){.room{padding:50px 16px}.room .cmp{height:auto}}
