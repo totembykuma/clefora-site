@@ -100,22 +100,3 @@ blockquote{margin:22px 0 28px;font:italic 400 clamp(32px,3.6vw,52px)/1.1 var(--s
 .det-grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:24vw}
 .det-grid .d{grid-column:auto!important;grid-row:auto!important}
 @media (max-width:860px){.det-grid{grid-template-columns:1fr 1fr;grid-auto-rows:42vw}}
-/* Colonne Morris : les affiches de Hugo sur la colonne parisienne, aux couleurs Clefora */
-.morris{height:340vh;position:relative}
-.m-stage{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center;perspective:1800px;perspective-origin:50% 40%}
-.m-col{--h:min(52vh,92vw);--w:calc(var(--h)*.714);--r:calc(var(--w)*.866);position:relative;display:grid;justify-items:center;margin-top:12vh}
-.m-dome{position:relative;width:calc(var(--r)*2.25);height:calc(var(--h)*.2);background:radial-gradient(ellipse at 38% 30%,#7a3a46,var(--wine) 55%,#2e1016);border-radius:50% 50% 6px 6px/100% 100% 6px 6px;box-shadow:inset 0 -10px 20px rgba(0,0,0,.35)}
-.m-fin{position:absolute;left:50%;top:-5vh;width:14px;height:6vh;margin-left:-7px;background:var(--wine);border-radius:7px 7px 2px 2px}
-.m-fin::before{content:"";position:absolute;left:50%;top:-14px;width:22px;height:22px;margin-left:-11px;border-radius:50%;background:var(--rose)}
-.m-frieze{width:calc(var(--r)*2.08);height:calc(var(--h)*.075);background-color:var(--wine);border-block:3px solid #2e1016;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Ccircle cx='30' cy='16' r='7' fill='none' stroke='%23F2EEEA' stroke-width='1.6'/%3E%3Ccircle cx='30' cy='15' r='2.2' fill='%23D9C3C6'/%3E%3Cpath d='M28.7 16.4h2.6l.9 5.4h-4.4z' fill='%23D9C3C6'/%3E%3C/svg%3E"),linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,0) 25%,rgba(255,255,255,.08) 45%,rgba(0,0,0,0) 65%,rgba(0,0,0,.55));
-  background-size:calc(var(--h)*.11) 100%,100% 100%;background-repeat:repeat-x,no-repeat;background-position:var(--fx,0) 0,0 0}
-.m-drum{position:relative;width:calc(var(--r)*2);height:var(--h);perspective:2200px;perspective-origin:50% 30%}
-.m-rot{position:absolute;inset:0;transform-style:preserve-3d;transform:translateZ(calc(var(--r)*-1)) rotateY(var(--a,0deg))}
-.face{position:absolute;left:50%;top:0;width:var(--w);height:var(--h);margin-left:calc(var(--w)/-2);transform:rotateY(calc(var(--i)*60deg)) translateZ(var(--r));backface-visibility:hidden;display:block;overflow:hidden;background:#ddd}
-.face img{width:100%;height:100%;object-fit:cover}
-.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,var(--sl,0)),rgba(0,0,0,0) 50%,rgba(0,0,0,var(--sr,0)));pointer-events:none}
-.m-base{width:calc(var(--r)*2.3);height:calc(var(--h)*.1);background:linear-gradient(180deg,#5c2630,#2e1016);border-radius:4px 4px 0 0;box-shadow:0 30px 40px -18px rgba(0,0,0,.45)}
-.m-ground{position:absolute;left:0;right:0;bottom:0;height:16vh;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(43,43,43,.06))}
-@media (max-width:860px){.m-col{--h:min(50vh,64vw)}.morris{height:300vh}}
-@media (prefers-reduced-motion:reduce){.morris{height:auto}.m-stage{position:relative;height:auto;padding:12vh 0}}
