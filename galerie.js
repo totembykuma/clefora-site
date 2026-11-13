@@ -11,6 +11,13 @@ function frame(){
   document.body.style.backgroundColor=tint||'';
 }
 addEventListener('scroll',function(){requestAnimationFrame(frame)},{passive:true});frame();
+var mo=document.getElementById('morris'),rot=mo&&mo.querySelector('.m-rot'),fr=mo&&mo.querySelector('.m-frieze'),fcs=mo?[].slice.call(mo.querySelectorAll('.face')):[];
+function spin(){if(!mo)return;var r=mo.getBoundingClientRect(),p=clamp(-r.top/(r.height-innerHeight)),a=-p*420;
+  rot.style.setProperty('--a',a+'deg');fr.style.setProperty('--fx',(a/360*fr.offsetWidth*3.14/1.05)+'px');
+  fcs.forEach(function(f,i){var d=((i*60+a)%360+540)%360-180,rad=d*Math.PI/180;
+    var s=f.querySelector('.shade');s.style.setProperty('--sl',Math.max(0,Math.sin(rad))*.85+.1);s.style.setProperty('--sr',Math.max(0,-Math.sin(rad))*.85+.1)})}
+addEventListener('scroll',function(){requestAnimationFrame(spin)},{passive:true});spin();
+
 document.querySelectorAll('.room').forEach(function(s){
   var cmp=s.querySelector('.cmp'),rng=s.querySelector('input'),lens=s.querySelector('.lens'),hd=new Image(),Z=2.6;
   rng.addEventListener('input',function(){cmp.style.setProperty('--v',rng.value)});
