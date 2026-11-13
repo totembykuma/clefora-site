@@ -308,3 +308,4 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--line-light);padding-to
 .posts p{color:var(--ink-soft);margin:0}
 .posts a:hover h2{color:var(--rose)}
 @media (max-width:720px){.posts{grid-template-columns:1fr}}
+.houses .h-sig{display:inline-flex}.houses .h-sig img{height:48px}
