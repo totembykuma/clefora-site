@@ -144,3 +144,4 @@ blockquote{margin:22px 0 28px;font:italic 400 clamp(32px,3.6vw,52px)/1.1 var(--s
 .room .cmp{height:64vh}
 @media (max-width:860px){.room{padding:50px 16px}.room .cmp{height:auto}}
 .cartel-w{margin-top:14px;font:500 10.5px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);text-align:center}
+.peek-art img{transform-origin:-6% 13%}
