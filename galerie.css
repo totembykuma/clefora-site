@@ -119,3 +119,8 @@ blockquote{margin:22px 0 28px;font:italic 400 clamp(32px,3.6vw,52px)/1.1 var(--s
 .room{content-visibility:auto;contain-intrinsic-size:auto 100vh}
 .lens{will-change:transform;left:0;top:0}
 @media (hover:none){.lens{display:none}.cmp{cursor:auto}}
+
+/* Œuvres présentées telles quelles : ni effet, ni zoom */
+.cmp,.gal [data-i]{cursor:auto}
+.gal [data-i]:hover img,.d:hover img{transform:none}
+.det-grid .d img,.gal .d:hover img{filter:none;transition:none}
