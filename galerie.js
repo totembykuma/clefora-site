@@ -1,6 +1,7 @@
 (function(){
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-var peek=document.getElementById('peek'),art=peek&&peek.querySelector('.peek-art');
+var peek0=document.getElementById('peek');if(peek0){var op=function(){requestAnimationFrame(function(){peek0.classList.add('is-open')})},im=peek0.querySelector('img');if(im.complete)op();else{im.addEventListener('load',op);im.addEventListener('error',op);setTimeout(op,2500)}}
+var peek=null,art=null;
 var rooms=[].slice.call(document.querySelectorAll('.room'));
 var body=document.body,curTint=null,ticking=false,lastP=-1;
 function clamp(x){return x<0?0:x>1?1:x}

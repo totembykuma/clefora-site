@@ -145,3 +145,16 @@ blockquote{margin:22px 0 28px;font:italic 400 clamp(32px,3.6vw,52px)/1.1 var(--s
 @media (max-width:860px){.room{padding:50px 16px}.room .cmp{height:auto}}
 .cartel-w{margin-top:14px;font:500 10.5px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);text-align:center}
 .peek-art img{transform-origin:-6% 13%}
+/* Ouverture v2 (14/11) : lever de rideau lin, sans serrure */
+.peek,.peek{height:auto}
+.peek-stage{position:relative;height:auto;min-height:100svh;overflow:visible;padding-bottom:6vh}
+.peek-art{-webkit-mask:none;mask:none;position:relative;height:min(66vh,128vw);margin-top:calc(8vh + 40px);overflow:hidden}
+.peek-art img{transform:scale(1.06);transform-origin:50% 40%;transition:transform 2.6s cubic-bezier(.2,.7,.2,1)}
+.peek-art::after{content:"";position:absolute;inset:0;background:var(--paper);transform-origin:50% 0;transition:transform 1.5s cubic-bezier(.7,0,.2,1) .25s}
+.peek-hint{display:none}
+.peek-title{position:static;transform:none;width:min(47vh,92vw);text-align:center;opacity:0;transition:opacity 1.2s ease 1.5s;padding-top:3vh}
+.peek.is-open .peek-art img{transform:scale(1)}
+.peek.is-open .peek-art::after{transform:scaleY(0)}
+.peek.is-open .peek-title{opacity:1}
+@media (max-width:860px){.peek{height:auto}}
+@media (prefers-reduced-motion:reduce){.peek-art::after{display:none}.peek-art img{transform:none;transition:none}.peek-title{opacity:1;transition:none}}
