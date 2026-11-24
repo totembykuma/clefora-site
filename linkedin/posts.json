@@ -1,150 +1,282 @@
 {
-  "heure": "10:00",
-  "debut": "2026-11-09",
-  "posts": [
-    {
-      "date": "2026-11-09",
-      "lien": "/simulateur",
-      "visuel": {
-        "photo": "salon-moulures.jpg",
-        "sur": "La maison Clefora",
-        "l1": "Votre appartement",
-        "l2": "mérite mieux qu'une clé.",
-        "cta": "clefora.fr"
-      },
-      "texte": "Votre appartement vaut plus que ce qu'il vous rapporte.\n\nClefora réunit deux maisons parisiennes : Made for You (conciergerie) et Capital Nettoyage (ménage hôtelier).\nUn interlocuteur. Un niveau d'exigence hôtelier.\n\nCombien rapporterait le vôtre ? → clefora.fr/simulateur"
-    },
-    {
-      "date": "2026-11-11",
-      "lien": "/hotels",
-      "visuel": {
-        "photo": "suite.jpg",
-        "sur": "Hôtels",
-        "l1": "Des chambres impeccables,",
-        "l2": "à chaque arrivée.",
-        "cta": "Devis en 24 h"
-      },
-      "texte": "Vos clients jugent votre hôtel dès qu'ils ouvrent la porte de leur chambre.\n\nCapital Nettoyage, notre maison sœur, prépare vos chambres au standard palace, avec ou sans linge.\n\nDevis en 24 h → clefora.fr/hotels"
-    },
-    {
-      "date": "2026-11-13",
-      "lien": "/simulateur",
-      "visuel": {
-        "photo": "sejour.jpg",
-        "sur": "Propriétaires",
-        "l1": "Trois semaines au loin.",
-        "l2": "Votre salon, lui, travaille.",
-        "cta": "Estimer en 30 s"
-      },
-      "texte": "Trois semaines d'absence. Un appartement vide. Zéro revenu.\n\nAvec Made for You, votre salon accueille des voyageurs pendant que vous êtes au loin : photos, annonces, accueil, ménage hôtelier.\n\nVotre estimation en 30 secondes → clefora.fr/simulateur"
-    },
-    {
-      "date": "2026-11-16",
-      "lien": "/proprietaires",
-      "visuel": {
-        "photo": "chambre-claire.jpg",
-        "sur": "L'art du détail",
-        "l1": "Un voyageur choisit",
-        "l2": "en trois photos.",
-        "cta": "clefora.fr"
-      },
-      "texte": "Un voyageur décide en trois photos. La lumière. Le lit. Le détail qui fait rêver.\n\nMade for You photographie votre appartement comme un hôtel de charme, pour qu'il soit choisi avant les autres.\n\n→ clefora.fr/proprietaires"
-    },
-    {
-      "date": "2026-11-18",
-      "lien": "/proprietaires",
-      "visuel": {
-        "photo": "salon-portrait.jpg",
-        "sur": "Bail mobilité",
-        "l1": "Un à dix mois.",
-        "l2": "Zéro souci.",
-        "cta": "clefora.fr"
-      },
-      "texte": "Ni location à l'année, ni voyageurs chaque week-end.\n\nLe bail mobilité : des cadres et des étudiants pour un à dix mois, un revenu régulier, un appartement préservé.\nMade for You s'occupe de tout, du dossier à la remise des clés.\n\n→ clefora.fr/proprietaires"
-    },
-    {
-      "date": "2026-11-20",
-      "lien": "/hotels",
-      "visuel": {
-        "photo": "chambre-bleue.jpg",
-        "sur": "Le linge",
-        "l1": "Des draps blancs,",
-        "l2": "repassés comme au palace.",
-        "cta": "Devis en 24 h"
-      },
-      "texte": "Le premier contact d'un client avec votre hôtel, c'est sa peau sur vos draps.\n\nCapital Nettoyage fournit, lave et repasse le linge de vos chambres. Blanc impeccable, plis nets, toujours à l'heure.\n\n→ clefora.fr/hotels"
-    },
-    {
-      "date": "2026-11-23",
-      "lien": "/",
-      "visuel": {
-        "photo": "entree.jpg",
-        "sur": "Une seule adresse",
-        "l1": "Deux maisons.",
-        "l2": "Un seul interlocuteur.",
-        "cta": "clefora.fr"
-      },
-      "texte": "Une conciergerie d'un côté. Une société de ménage de l'autre. Deux factures, deux plannings, deux excuses.\n\nClefora réunit Made for You et Capital Nettoyage. Un seul numéro, une seule exigence.\n\n→ clefora.fr"
-    },
-    {
-      "date": "2026-11-25",
-      "lien": "/simulateur",
-      "visuel": {
-        "photo": "terrasse.jpg",
-        "sur": "Propriétaires",
-        "l1": "Ce que vaut",
-        "l2": "votre appartement, vraiment.",
-        "cta": "Estimer en 30 s"
-      },
-      "texte": "Location classique ou courte durée : l'écart peut surprendre.\n\nNotre simulateur compare les deux pour votre arrondissement, avec les prix du marché 2026.\n\nTrente secondes, sans inscription → clefora.fr/simulateur"
-    },
-    {
-      "date": "2026-11-27",
-      "lien": "/hotels",
-      "visuel": {
-        "photo": "piscine.jpg",
-        "sur": "Hôtels",
-        "l1": "Le calme du matin",
-        "l2": "se prépare la nuit.",
-        "cta": "Devis en 24 h"
-      },
-      "texte": "Vos clients dorment. Nos équipes travaillent.\n\nCapital Nettoyage intervient aux heures creuses : parties communes, spa, salles de petit-déjeuner. Au réveil, tout est parfait, et personne n'a rien vu.\n\n→ clefora.fr/hotels"
-    },
-    {
-      "date": "2026-11-30",
-      "lien": "/proprietaires",
-      "visuel": {
-        "photo": "salon-arrondi.jpg",
-        "sur": "Conciergerie",
-        "l1": "Vos voyageurs repartent.",
-        "l2": "Vos avis restent.",
-        "cta": "clefora.fr"
-      },
-      "texte": "Un séjour réussi, c'est un avis cinq étoiles. Et un avis cinq étoiles, c'est la prochaine réservation.\n\nMade for You accueille vos voyageurs, répond jour et nuit et rend l'appartement comme neuf entre deux séjours.\n\n→ clefora.fr/proprietaires"
-    },
-    {
-      "date": "2026-12-02",
-      "lien": "/",
-      "visuel": {
-        "photo": "salon-moulures.jpg",
-        "sur": "Décembre à Paris",
-        "l1": "Les fêtes approchent.",
-        "l2": "Votre agenda aussi.",
-        "cta": "clefora.fr"
-      },
-      "texte": "Décembre est le mois où Paris se remplit de voyageurs.\n\nVous partez pour les fêtes ? Votre appartement peut accueillir ceux qui arrivent. Made for You s'occupe de tout, vous n'avez qu'à laisser les clés.\n\n→ clefora.fr"
-    },
-    {
-      "date": "2026-12-04",
-      "lien": "/hotels",
-      "visuel": {
-        "photo": "suite.jpg",
-        "sur": "Hôtels",
-        "l1": "Haute saison,",
-        "l2": "haute exigence.",
-        "cta": "Devis en 24 h"
-      },
-      "texte": "Taux de remplissage au maximum, équipes à bout de souffle.\n\nCapital Nettoyage renforce votre ménage pendant les fêtes : des chambres prêtes à l'heure, chaque jour, au standard palace.\n\nDevis en 24 h → clefora.fr/hotels"
-    }
-  ]
+ "heure": "10:00",
+ "debut": "2026-11-09",
+ "posts": [
+  {
+   "date": "2026-11-09",
+   "lien": "/simulateur",
+   "visuel": {
+    "photo": "salon-moulures.jpg",
+    "sur": "La maison Clefora",
+    "l1": "Votre appartement",
+    "l2": "mérite mieux qu'une clé.",
+    "cta": "clefora.fr"
+   },
+   "texte": "Votre appartement vaut plus que ce qu'il vous rapporte.\n\nClefora réunit deux maisons parisiennes : Made for You (conciergerie) et Capital Nettoyage (ménage hôtelier).\nUn interlocuteur. Un niveau d'exigence hôtelier.\n\nCombien rapporterait le vôtre ? → clefora.fr/simulateur"
+  },
+  {
+   "date": "2026-11-11",
+   "lien": "/hotels",
+   "visuel": {
+    "photo": "suite.jpg",
+    "sur": "Hôtels",
+    "l1": "Des chambres impeccables,",
+    "l2": "à chaque arrivée.",
+    "cta": "Devis en 24 h"
+   },
+   "texte": "Vos clients jugent votre hôtel dès qu'ils ouvrent la porte de leur chambre.\n\nCapital Nettoyage, notre maison sœur, prépare vos chambres au standard palace, avec ou sans linge.\n\nDevis en 24 h → clefora.fr/hotels"
+  },
+  {
+   "date": "2026-11-13",
+   "lien": "/simulateur",
+   "visuel": {
+    "photo": "sejour.jpg",
+    "sur": "Propriétaires",
+    "l1": "Trois semaines au loin.",
+    "l2": "Votre salon, lui, travaille.",
+    "cta": "Estimer en 30 s"
+   },
+   "texte": "Trois semaines d'absence. Un appartement vide. Zéro revenu.\n\nAvec Made for You, votre salon accueille des voyageurs pendant que vous êtes au loin : photos, annonces, accueil, ménage hôtelier.\n\nVotre estimation en 30 secondes → clefora.fr/simulateur"
+  },
+  {
+   "date": "2026-11-16",
+   "lien": "/proprietaires",
+   "visuel": {
+    "photo": "chambre-claire.jpg",
+    "sur": "L'art du détail",
+    "l1": "Un voyageur choisit",
+    "l2": "en trois photos.",
+    "cta": "clefora.fr"
+   },
+   "texte": "Un voyageur décide en trois photos. La lumière. Le lit. Le détail qui fait rêver.\n\nMade for You photographie votre appartement comme un hôtel de charme, pour qu'il soit choisi avant les autres.\n\n→ clefora.fr/proprietaires"
+  },
+  {
+   "date": "2026-11-18",
+   "lien": "/proprietaires",
+   "visuel": {
+    "photo": "salon-portrait.jpg",
+    "sur": "Bail mobilité",
+    "l1": "Un à dix mois.",
+    "l2": "Zéro souci.",
+    "cta": "clefora.fr"
+   },
+   "texte": "Ni location à l'année, ni voyageurs chaque week-end.\n\nLe bail mobilité : des cadres et des étudiants pour un à dix mois, un revenu régulier, un appartement préservé.\nMade for You s'occupe de tout, du dossier à la remise des clés.\n\n→ clefora.fr/proprietaires"
+  },
+  {
+   "date": "2026-11-20",
+   "lien": "/hotels",
+   "visuel": {
+    "photo": "chambre-bleue.jpg",
+    "sur": "Le linge",
+    "l1": "Des draps blancs,",
+    "l2": "repassés comme au palace.",
+    "cta": "Devis en 24 h"
+   },
+   "texte": "Le premier contact d'un client avec votre hôtel, c'est sa peau sur vos draps.\n\nCapital Nettoyage fournit, lave et repasse le linge de vos chambres. Blanc impeccable, plis nets, toujours à l'heure.\n\n→ clefora.fr/hotels"
+  },
+  {
+   "date": "2026-11-23",
+   "lien": "/",
+   "visuel": {
+    "photo": "entree.jpg",
+    "sur": "Une seule adresse",
+    "l1": "Deux maisons.",
+    "l2": "Un seul interlocuteur.",
+    "cta": "clefora.fr"
+   },
+   "texte": "Une conciergerie d'un côté. Une société de ménage de l'autre. Deux factures, deux plannings, deux excuses.\n\nClefora réunit Made for You et Capital Nettoyage. Un seul numéro, une seule exigence.\n\n→ clefora.fr"
+  },
+  {
+   "date": "2026-11-25",
+   "lien": "/simulateur",
+   "visuel": {
+    "photo": "terrasse.jpg",
+    "sur": "Propriétaires",
+    "l1": "Ce que vaut",
+    "l2": "votre appartement, vraiment.",
+    "cta": "Estimer en 30 s"
+   },
+   "texte": "Location classique ou courte durée : l'écart peut surprendre.\n\nNotre simulateur compare les deux pour votre arrondissement, avec les prix du marché 2026.\n\nTrente secondes, sans inscription → clefora.fr/simulateur"
+  },
+  {
+   "date": "2026-11-27",
+   "lien": "/hotels",
+   "visuel": {
+    "photo": "piscine.jpg",
+    "sur": "Hôtels",
+    "l1": "Le calme du matin",
+    "l2": "se prépare la nuit.",
+    "cta": "Devis en 24 h"
+   },
+   "texte": "Vos clients dorment. Nos équipes travaillent.\n\nCapital Nettoyage intervient aux heures creuses : parties communes, spa, salles de petit-déjeuner. Au réveil, tout est parfait, et personne n'a rien vu.\n\n→ clefora.fr/hotels"
+  },
+  {
+   "date": "2026-11-30",
+   "lien": "/proprietaires",
+   "visuel": {
+    "photo": "salon-arrondi.jpg",
+    "sur": "Conciergerie",
+    "l1": "Vos voyageurs repartent.",
+    "l2": "Vos avis restent.",
+    "cta": "clefora.fr"
+   },
+   "texte": "Un séjour réussi, c'est un avis cinq étoiles. Et un avis cinq étoiles, c'est la prochaine réservation.\n\nMade for You accueille vos voyageurs, répond jour et nuit et rend l'appartement comme neuf entre deux séjours.\n\n→ clefora.fr/proprietaires"
+  },
+  {
+   "date": "2026-12-02",
+   "lien": "/",
+   "visuel": {
+    "photo": "salon-moulures.jpg",
+    "sur": "Décembre à Paris",
+    "l1": "Les fêtes approchent.",
+    "l2": "Votre agenda aussi.",
+    "cta": "clefora.fr"
+   },
+   "texte": "Décembre est le mois où Paris se remplit de voyageurs.\n\nVous partez pour les fêtes ? Votre appartement peut accueillir ceux qui arrivent. Made for You s'occupe de tout, vous n'avez qu'à laisser les clés.\n\n→ clefora.fr"
+  },
+  {
+   "date": "2026-12-04",
+   "lien": "/hotels",
+   "visuel": {
+    "photo": "suite.jpg",
+    "sur": "Hôtels",
+    "l1": "Haute saison,",
+    "l2": "haute exigence.",
+    "cta": "Devis en 24 h"
+   },
+   "texte": "Taux de remplissage au maximum, équipes à bout de souffle.\n\nCapital Nettoyage renforce votre ménage pendant les fêtes : des chambres prêtes à l'heure, chaque jour, au standard palace.\n\nDevis en 24 h → clefora.fr/hotels"
+  },
+  {
+   "date": "2026-12-07",
+   "lien": "/blog/regle-120-jours-paris",
+   "texte": "Résidence principale à Paris : 120 nuits par an en courte durée, pas une de plus.\n\nAu-delà, le bail mobilité prend le relais, en toute légalité. Made for You vous aide à combiner les deux.\n\nLa règle expliquée → clefora.fr/blog/regle-120-jours-paris",
+   "visuel": {
+    "cta": "Lire l'article",
+    "l1": "120 nuits par an.",
+    "l2": "Pas une de plus.",
+    "photo": "arc-de-triomphe.jpg",
+    "sur": "Réglementation"
+   }
+  },
+  {
+   "date": "2026-12-09",
+   "lien": "/hotels",
+   "texte": "Un client ne remarque jamais une chambre parfaite. Il remarque tout le reste.\n\nCapital Nettoyage, notre maison sœur, contrôle chaque chambre avant l'arrivée : lit, salle de bain, poussière, odeur.\n\nDevis en 24 h → clefora.fr/hotels",
+   "visuel": {
+    "cta": "Devis en 24 h",
+    "l1": "La perfection",
+    "l2": "ne se remarque pas.",
+    "photo": "chambre-bleue.jpg",
+    "sur": "Hôtels"
+   }
+  },
+  {
+   "date": "2026-12-11",
+   "lien": "/blog/combien-prend-une-conciergerie-airbnb",
+   "texte": "Combien prend une conciergerie ? Les formules varient beaucoup d'une maison à l'autre, et ne couvrent pas toujours les mêmes services.\n\nChez Made for You : 20 % en courte durée, 15 % en bail mobilité, ménage et linge organisés.\n\nLe comparatif → clefora.fr/blog/combien-prend-une-conciergerie-airbnb",
+   "visuel": {
+    "cta": "Comparer",
+    "l1": "Des honoraires clairs,",
+    "l2": "sans surprise.",
+    "photo": "salon-canape.jpg",
+    "sur": "Honoraires"
+   }
+  },
+  {
+   "date": "2026-12-14",
+   "lien": "/proprietaires",
+   "texte": "Vous partez pour les fêtes ? Votre appartement, lui, peut rester occupé.\n\nMade for You accueille vos voyageurs, gère le ménage et vous rend les clés à votre retour, appartement impeccable.\n\nEstimation sous 24 h → clefora.fr/proprietaires",
+   "visuel": {
+    "cta": "Estimation 24 h",
+    "l1": "Vous partez.",
+    "l2": "Votre appartement travaille.",
+    "photo": "blog-salon-cheminee.jpg",
+    "sur": "Les fêtes à Paris"
+   }
+  },
+  {
+   "date": "2026-12-16",
+   "lien": "/blog/courte-duree-ou-bail-mobilite",
+   "texte": "Courte durée ou bail mobilité ? La réponse dépend moins du marché que de votre appartement : sa taille, son quartier, votre disponibilité.\n\nNotre guide pour choisir → clefora.fr/blog/courte-duree-ou-bail-mobilite",
+   "visuel": {
+    "cta": "Lire le guide",
+    "l1": "Courte durée",
+    "l2": "ou bail mobilité ?",
+    "photo": "blog-studio-balcon.jpg",
+    "sur": "Propriétaires"
+   }
+  },
+  {
+   "date": "2026-12-18",
+   "lien": "/hotels",
+   "texte": "Le linge d'un hôtel se lave en coulisses, mais se juge en pleine lumière.\n\nCapital Nettoyage fournit un linge hôtelier, ou entretient le vôtre, au même niveau d'exigence.\n\nDevis en 24 h → clefora.fr/hotels",
+   "visuel": {
+    "cta": "Devis en 24 h",
+    "l1": "Un drap blanc",
+    "l2": "ne pardonne rien.",
+    "photo": "chambre-claire.jpg",
+    "sur": "Le linge"
+   }
+  },
+  {
+   "date": "2026-12-21",
+   "lien": "/",
+   "texte": "À la veille de Noël, merci.\n\nÀ chaque propriétaire qui nous a confié ses clés, à chaque hôtel qui nous a ouvert ses portes. Made for You et Capital Nettoyage vous souhaitent de belles fêtes.",
+   "visuel": {
+    "cta": "clefora.fr",
+    "l1": "De belles fêtes,",
+    "l2": "de la part de Clefora.",
+    "photo": "entree.jpg",
+    "sur": "Merci"
+   }
+  },
+  {
+   "date": "2026-12-23",
+   "lien": "/simulateur",
+   "texte": "Un appartement vide pendant les fêtes, c'est un manque à gagner au moment où Paris est le plus demandé.\n\nCombien rapporterait le vôtre ? → clefora.fr/simulateur",
+   "visuel": {
+    "cta": "Simuler",
+    "l1": "Combien rapporte",
+    "l2": "votre appartement ?",
+    "photo": "sejour.jpg",
+    "sur": "Simulateur"
+   }
+  },
+  {
+   "date": "2026-12-25",
+   "lien": "/",
+   "texte": "Joyeux Noël.\n\nQue vos maisons soient chaleureuses, vos tables pleines et vos draps frais.\n\nToute l'équipe Clefora, Made for You et Capital Nettoyage.",
+   "visuel": {
+    "cta": "clefora.fr",
+    "l1": "Des maisons chaleureuses,",
+    "l2": "des draps frais.",
+    "photo": "salon-arrondi.jpg",
+    "sur": "Joyeux Noël"
+   }
+  },
+  {
+   "date": "2026-12-28",
+   "lien": "/partenaires",
+   "texte": "Conciergeries hors de Paris : vous cherchez des propriétaires ?\n\nNotre bourse aux leads réunit des demandes qualifiées partout en France, anonymisées jusqu'à l'achat.\n\nRejoindre le réseau → clefora.fr/partenaires",
+   "visuel": {
+    "cta": "Rejoindre",
+    "l1": "Des propriétaires,",
+    "l2": "partout en France.",
+    "photo": "terrasse.jpg",
+    "sur": "Conciergeries partenaires"
+   }
+  },
+  {
+   "date": "2026-12-30",
+   "lien": "/",
+   "texte": "2027 commence dans deux jours. Une bonne résolution : confier votre appartement ou votre hôtel à des maisons qui le tiennent comme une suite.\n\nMade for You pour les propriétaires, Capital Nettoyage pour les hôtels. Une seule adresse → clefora.fr",
+   "visuel": {
+    "cta": "clefora.fr",
+    "l1": "Une nouvelle année,",
+    "l2": "la même exigence.",
+    "photo": "salon-moulures.jpg",
+    "sur": "2027"
+   }
+  }
+ ]
 }
