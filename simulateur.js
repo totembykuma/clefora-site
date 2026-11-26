@@ -63,19 +63,18 @@
     var sz=Math.min(1.25,Math.max(.85,Math.pow(z.ref/m,.12))),exp=Math.max(1,Math.round(m/25)),
         pf=Math.min(1.15,Math.max(.88,1+.06*(p+1-exp))),
         lc=z.lc*sz*q*m,
-        brut={cd:z.cd*sz*pf*q*m,bm:lc*M.bm,lc:lc},net={},best="lc",summ=[];
-    for(var x in brut){var pl=brut[x]*M.plat[x],ho=(brut[x]-pl)*M.hon[x],va=x==="lc"?brut[x]*M.vacance:0;net[x]={v:brut[x]-pl-ho-va,pl:pl,ho:ho,va:va}}
+        brut={cd:z.cd*sz*pf*q*m,bm:lc*M.bm},net={},best="cd",summ=[];
+    for(var x in brut){var pl=brut[x]*M.plat[x],ho=(brut[x]-pl)*M.hon[x];net[x]={v:brut[x]-pl-ho,pl:pl,ho:ho}}
     for(x in net)if(net[x].v>net[best].v)best=x;
     rows.forEach(function(r){var key=r.dataset.k,n=net[key];
       r.querySelector(".v").innerHTML=r50(n.v*(1-z.fourchette))+" – "+r50(n.v*(1+z.fourchette))+"<small>€</small>";
-      r.querySelector(".n span").textContent=(key==="lc"?"Loyer ≈ ":"Loyers ≈ ")+r50(brut[key])+" €";
-      r.querySelector(".n b").textContent=key==="lc"?"− vacance "+r50(n.va)+" € · gestion à votre charge":"Frais de plateforme et honoraires ("+Math.round(M.hon[key]*100)+" %) déduits";
+      r.querySelector(".n span").textContent="Loyers ≈ "+r50(brut[key])+" €";
+      r.querySelector(".n b").textContent="Frais de plateforme et honoraires ("+Math.round(M.hon[key]*100)+" %) déduits";
       r.querySelector(".bar i").style.width=Math.round(n.v/net[best].v*100)+"%";
       r.classList.toggle("best",key===best);
       summ.push(key.toUpperCase()+" net "+r50(n.v)+" €");
     });
-    var gain=Math.round((net[best].v/net.lc.v-1)*100),an=Math.round((net[best].v-net.lc.v)*12/100)*100;
-    msg.innerHTML=best==="lc"||gain<8?"Pour ce bien, l’écart avec une location classique reste faible : <em>parlons-en ensemble</em>.":"Environ <em>"+r50(net[best].v-net.lc.v)+" € de plus par mois</em>, soit "+fmt.format(an)+" € par an, qu’en location classique ("+(gain>0?"+":"")+gain+" %), tous frais payés, sans vous en occuper.";
+    msg.innerHTML="Environ <em>"+r50(net[best].v)+" € par mois</em>, soit "+fmt.format(Math.round(net[best].v*12/100)*100)+" € par an en "+(best==="cd"?"courte durée":"bail mobilité")+", tous frais payés, sans vous en occuper.";
     if(fsim)fsim.value=place.label+" · "+LBL[p]+(m?" · "+m+" m²":"")+" · "+summ.join(" / ");
     if(fcp&&!fcp.value&&place.cp){fcp.value=place.cp;fcp.dispatchEvent(new Event("input"))}
   }
